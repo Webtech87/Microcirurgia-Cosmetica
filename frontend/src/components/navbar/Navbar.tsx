@@ -22,12 +22,31 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(false);
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    
+    // Scroll to top smoothly and stay there
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    
+    // Reset any scroll position memory
+    if (window.history.scrollRestoration) {
+      window.history.scrollRestoration = 'manual';
+    }
+  };
+
   return (
     <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__container">
         {/* Logo */}
         <div className="navbar__logo">
-          <a href="/" className="navbar__logo-link">
+          <a 
+            href="/" 
+            className="navbar__logo-link"
+            onClick={handleLogoClick}
+          >
             Santiclinic
           </a>
         </div>
@@ -91,7 +110,16 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu */}
         <div className={`navbar__mobile-menu ${isMenuOpen ? 'navbar__mobile-menu--active' : ''}`}>
           <div className="navbar__mobile-header">
-            <div className="navbar__mobile-logo">Santiclinic</div>
+            <div 
+              className="navbar__mobile-logo"
+              onClick={() => {
+                closeMenu();
+                handleLogoClick({ preventDefault: () => {} } as React.MouseEvent<HTMLAnchorElement>);
+              }}
+              style={{ cursor: 'pointer' }}
+            >
+              Santiclinic
+            </div>
             <button 
               className="navbar__close-btn"
               onClick={closeMenu}
