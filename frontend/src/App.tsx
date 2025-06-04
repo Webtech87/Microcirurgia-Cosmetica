@@ -1,5 +1,4 @@
 // frontend/src/App.tsx
-import React from 'react';
 import Navbar from './components/navbar';
 import Hero from './components/hero';
 import WhyChoose from './components/why-choose';
@@ -7,6 +6,7 @@ import Treatments from './components/treatments';
 import Testimonials from './components/testimonials';
 import Contact from './components/contact';
 import Footer from './components/footer';
+import WhatsAppFloat from './components/whatsapp-float';
 import './App.css';
 
 function App() {
@@ -19,6 +19,9 @@ function App() {
       <Testimonials />
       <Contact />
       <Footer />
+      
+      {/* WhatsApp Float Button */}
+      <WhatsAppFloat />
     </div>
   );
 }
