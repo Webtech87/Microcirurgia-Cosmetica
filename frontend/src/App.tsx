@@ -8,6 +8,7 @@ import Contact from './components/contact';
 import Footer from './components/footer';
 import WhatsAppFloat from './components/whatsapp-float';
 import PopupForm from './components/popup-form';
+import CookiesBanner from './components/cookies-banner';
 import './App.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       {/* Floating Components */}
       <WhatsAppFloat />
       <PopupForm />
+      <CookiesBanner />
     </div>
   );
 }
