@@ -5,6 +5,7 @@ interface Treatment {
   id: number;
   title: string;
   description: string;
+  subtypes?: { name: string; description: string }[];
 }
 
 const Treatments: React.FC = () => {
@@ -13,38 +14,66 @@ const Treatments: React.FC = () => {
   const treatments: Treatment[] = [
     {
       id: 1,
-      title: 'Micro lifting de sobrancelha',
-      description: 'Procedimento de elevação das caudas de sobrancelha com microcirurgia regenerativa com células estaminais. Técnica inovadora que oferece elasticidade e densifica permanente. Processo que permite um aspeto mais jovem sem anestesia geral e tempo de recuperação muito reduzido.'
+      title: 'Micro Transplante Sobrancelha',
+      description: 'A microcirurgia de transplante de sobrancelha é um procedimento estético que visa restaurar, preencher ou definir as sobrancelhas, utilizando folículos capilares retirados de outra parte do corpo, geralmente da parte de trás da cabeça. O resultado final é geralmente natural, com fios mais preenchidos e bem alinhados ao formato desejado.',
+      subtypes: [
+        {
+          name: 'Transplante Completo',
+          description: 'Para quem sofreu uma perda total dos folículos capilares, esta cirurgia visa implantar a sobrancelha completa.'
+        },
+        {
+          name: 'Transplante Filling',
+          description: 'Para quem perdeu parcialmente os folículos capilares, esta cirurgia irá preencher as falhas existentes.'
+        }
+      ]
     },
     {
       id: 2,
-      title: 'Micro bichectomia superior',
-      description: 'Procedimento minimamente invasivo que remove o excesso de gordura das bochechas superiores, criando um contorno facial mais definido e elegante. Realizado com técnicas avançadas que garantem resultados naturais e tempo de recuperação reduzido.'
+      title: 'Micro Lifting',
+      description: 'Procedimentos cirúrgicos estéticos destinados a rejuvenescer diferentes áreas do rosto, reduzindo rugas e flacidez com técnicas minimamente invasivas.',
+      subtypes: [
+        {
+          name: 'Micro Lifting Facial',
+          description: 'Procedimento cirúrgico estético destinado a rejuvenescer a aparência do rosto, reduzindo rugas e flacidez, especialmente na área das bochechas, maxilares e pescoço.'
+        },
+        {
+          name: 'Micro Lifting Sobrancelhas',
+          description: 'Procedimento estético menos invasivo que se foca na área das sobrancelhas e testa, proporcionando um efeito de elevação sutil e natural. Corrige ligeiramente a flacidez na região das sobrancelhas e suaviza as linhas da testa.'
+        },
+        {
+          name: 'Micro Lifting Lábio Superior',
+          description: 'Visa encurtar a distância entre o lábio e o nariz, tornando o lábio superior mais proeminente e rejuvenescendo a área. O lábio superior ganha uma aparência mais cheia e definida, sem a necessidade de preenchimentos.'
+        }
+      ]
     },
     {
       id: 3,
-      title: 'Micro bichectomia inferior',
-      description: 'Técnica refinada para remoção da gordura das bochechas inferiores, proporcionando um aspeto mais esculpido e harmonioso ao rosto. Procedimento realizado com precisão cirúrgica e cuidados pós-operatórios personalizados.'
+      title: 'Micro Cervicoplastia',
+      description: 'Procedimento estético destinado a eliminar o excesso de gordura acumulada na área da papada, criando um contorno mais definido do queixo e pescoço. Este procedimento é recomendado para pessoas que têm uma papada devido a acúmulo de gordura, e não devido a flacidez excessiva da pele ou a alterações musculares significativas. A recuperação é relativamente rápida, e a maioria dos pacientes consegue retomar as suas atividades diárias em poucos dias.'
     },
     {
       id: 4,
-      title: 'Micro lifting deep face',
-      description: 'Lifting profundo que atua nas camadas mais profundas da face, restaurando a firmeza e elasticidade da pele. Técnica inovadora que proporciona resultados duradouros com aspeto completamente natural.'
+      title: 'Micro Blefaroplastia',
+      description: 'Procedimentos estéticos minimamente invasivos focados na área dos olhos, visando corrigir sinais de envelhecimento como excesso de pele e gordura nas pálpebras.',
+      subtypes: [
+        {
+          name: 'Micro Blefaroplastia Superior',
+          description: 'Este procedimento visa corrigir sinais de envelhecimento ao redor dos olhos, como excesso de pele nas pálpebras superiores e excesso de gordura.'
+        },
+        {
+          name: 'Micro Blefaroplastia Inferior',
+          description: 'Procedimento que visa melhorar o aspeto das bolsas de gordura nas pálpebras inferiores e excesso de pele.'
+        },
+        {
+          name: 'Micro Blefaroplastia Superior e Inferior',
+          description: 'Procedimento estético minimamente invasivo focado na remoção de excesso de pele, gordura ou ambos das pálpebras superiores e inferiores, com o objetivo de rejuvenescer a área dos olhos.'
+        }
+      ]
     },
     {
       id: 5,
-      title: 'Mini mass lifting',
-      description: 'Procedimento de rejuvenescimento que combina várias técnicas para um lifting global do rosto. Ideal para quem procura resultados significativos com menor invasividade e recuperação mais rápida.'
-    },
-    {
-      id: 6,
-      title: 'Micro implante de sobrancelha - técnica exclusiva Santi Clinic',
-      description: 'Técnica exclusiva desenvolvida pela Santi Clinic para implante de pelos nas sobrancelhas, criando um resultado completamente natural. Procedimento personalizado que respeita o crescimento natural dos pelos.'
-    },
-    {
-      id: 7,
-      title: 'Micro rinoplastia',
-      description: 'Rinoplastia minimamente invasiva que corrige pequenas imperfeições do nariz sem necessidade de cirurgia tradicional. Técnica refinada que permite ajustes precisos com recuperação muito mais rápida.'
+      title: 'Micro Otoplastia',
+      description: 'Visa corrigir as orelhas proeminentes, aproximando-as da cabeça, e melhorar a forma ou contorno das orelhas, com o objetivo de melhorar a aparência e o posicionamento das orelhas, tornando-as mais harmoniosas em relação ao rosto. Os resultados são permanentes, pois as orelhas mantêm-se na nova posição e formato devido às dobras e suturas realizadas na cartilagem.'
     }
   ];
 
@@ -67,8 +96,8 @@ const Treatments: React.FC = () => {
             </h2>
             
             <p className="treatments__subtitle">
-              Descubra soluções personalizadas que se 
-              adaptam às suas necessidades estéticas e ao 
+              Descubra soluções personalizadas de microcirurgia 
+              que se adaptam às suas necessidades estéticas e ao 
               seu ritmo de vida.
             </p>
 
@@ -102,6 +131,22 @@ const Treatments: React.FC = () => {
                   >
                     <div className="treatments__item-description">
                       {treatment.description}
+                      
+                      {/* Subtypes */}
+                      {treatment.subtypes && (
+                        <div className="treatments__subtypes">
+                          {treatment.subtypes.map((subtype, index) => (
+                            <div key={index} className="treatments__subtype">
+                              <h4 className="treatments__subtype-title">
+                                {subtype.name}
+                              </h4>
+                              <p className="treatments__subtype-description">
+                                {subtype.description}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -116,7 +161,7 @@ const Treatments: React.FC = () => {
             <div className="treatments__image-wrapper">
               <img 
                 src="/images/claudia.PNG" 
-                alt="Tratamentos Santiclinic - Antes e Depois" 
+                alt="Tratamentos Microcirurgia Santiclinic - Antes e Depois" 
                 className="treatments__image"
               />
             </div>
