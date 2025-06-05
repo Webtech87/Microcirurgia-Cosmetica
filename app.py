@@ -17,7 +17,10 @@ PROJECT_NAME="Microcirurgia-Cosmetica"
 
 # Configure CORS to allow requests from your React app
 CORS(app, resources={r"/*": {
-    "origins": "http://localhost:5173",  # Your React development server
+    "origins": [
+            "http://localhost:5173", # Your React development server
+            "https://microcirurgia.onrender.com"
+        ],  
     "supports_credentials": True
 }})
 
