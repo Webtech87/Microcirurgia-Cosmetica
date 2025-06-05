@@ -158,8 +158,9 @@
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
-    aspect-ratio: 3/4;
+    object-fit: contain; /* Changed from cover to contain to show full image */
+    /* Removed aspect-ratio constraint that was cutting the image */
+    min-height: 300px; /* Minimum height to ensure good proportions */
   }
   
   /* Yellow curved accent background */
@@ -193,6 +194,10 @@
     .treatments__item-description {
       font-size: 13px;
       padding-left: 60px;
+    }
+    
+    .treatments__image {
+      min-height: 280px;
     }
   }
   
@@ -260,6 +265,10 @@
     .treatments__accent-bg {
       right: -20px;
     }
+    
+    .treatments__image {
+      min-height: 250px;
+    }
   }
   
   @media (max-width: 480px) {
@@ -301,6 +310,10 @@
     
     .treatments__image-container {
       max-width: 280px;
+    }
+    
+    .treatments__image {
+      min-height: 200px;
     }
   }
   
