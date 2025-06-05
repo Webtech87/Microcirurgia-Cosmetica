@@ -12,6 +12,7 @@ import PopupForm from './components/popup-form';
 import CookiesBanner from './components/cookies-banner';
 import PrivacyPolicy from './pages/privacy-policy';
 import CookiesPolicy from './pages/cookies-policy';
+import VideoTestimonials from './components/videoslider';
 import './App.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               <Hero />
               <WhyChoose />
               <Treatments />
+              <VideoTestimonials /> 
               <Testimonials />
               <Contact />
               <Footer />

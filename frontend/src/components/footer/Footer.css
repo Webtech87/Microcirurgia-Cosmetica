@@ -4,12 +4,16 @@
     padding: 24px 0;
     position: relative;
     overflow: hidden;
+    border-radius: 30px;
+    
   }
   
   .footer__container {
     width: 100%;
     margin: 0;
     padding: 0 24px;
+    
+    
   }
   
   .footer__content {
@@ -17,6 +21,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    
   }
   
   .footer__copyright {
