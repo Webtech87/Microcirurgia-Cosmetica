@@ -5,8 +5,8 @@ const WhatsAppFloat: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  // WhatsApp number (Portuguese format)
-  const whatsappNumber = '+351912345678';
+  // WhatsApp number (updated to match navbar)
+  const whatsappNumber = '+351915007427';
   const message = 'Olá! Gostaria de agendar uma consulta na Santiclinic.';
 
   // Show button after page loads
@@ -21,7 +21,7 @@ const WhatsAppFloat: React.FC = () => {
   const handleWhatsAppClick = () => {
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleMouseEnter = () => {

@@ -27,8 +27,8 @@
   
   .popup-form__container {
     background: #F4D03F;
-    border-radius: 20px;
-    padding: 40px;
+    border-radius: 200px 200px 50px 200px;
+    padding: 50px 40px 40px 40px;
     max-width: 480px;
     width: 100%;
     max-height: 85vh;
@@ -36,6 +36,15 @@
     position: relative;
     animation: slideInScale 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+  
+  /* Hide scrollbar for WebKit browsers */
+  .popup-form__container::-webkit-scrollbar {
+    display: none;
   }
   
   @keyframes slideInScale {
@@ -52,8 +61,8 @@
   /* Close Button */
   .popup-form__close {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: 20px;
+    right: 20px;
     background: rgba(44, 44, 44, 0.1);
     border: none;
     width: 36px;
@@ -145,6 +154,8 @@
     color: #2c2c2c;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .popup-form__input:focus {
@@ -322,10 +333,15 @@
     }
     
     .popup-form__container {
-      padding: 28px 24px;
-      border-radius: 16px;
+      padding: 40px 30px 30px 30px;
+      border-radius: 200px 200px 50px 200px;
       max-height: 80vh;
       max-width: 400px;
+    }
+    
+    .popup-form__close {
+      top: 16px;
+      right: 16px;
     }
     
     .popup-form__title {
@@ -369,14 +385,22 @@
   
   @media (max-width: 480px) {
     .popup-form__overlay {
-      padding: 20px;
+      padding: 16px;
     }
     
     .popup-form__container {
-      padding: 20px 18px;
-      border-radius: 12px;
+      padding: 35px 25px 25px 25px;
+      border-radius: 200px 200px 50px 200px;
       max-height: 70vh;
       max-width: 320px;
+    }
+    
+    .popup-form__close {
+      top: 12px;
+      right: 12px;
+      width: 30px;
+      height: 30px;
+      font-size: 18px;
     }
     
     .popup-form__title {
@@ -391,7 +415,7 @@
     
     .popup-form__input {
       padding: 11px 14px;
-      font-size: 14px;
+      font-size: 16px; /* Prevent zoom on iOS */
     }
     
     .popup-form__submit {
@@ -402,14 +426,6 @@
     .popup-form__icon {
       font-size: 32px;
       margin-bottom: 10px;
-    }
-    
-    .popup-form__close {
-      width: 30px;
-      height: 30px;
-      font-size: 18px;
-      top: 10px;
-      right: 10px;
     }
     
     .popup-form__form {
@@ -459,6 +475,12 @@
     
     .popup-form__success-text {
       font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .popup-form__container {
+      padding: 30px 20px 20px 20px;
     }
   }
   

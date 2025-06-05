@@ -37,6 +37,16 @@ const Navbar: React.FC = () => {
     }
   };
 
+  // Function to handle WhatsApp redirect
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '351915007427'; // Portuguese country code + phone number
+    const message = encodeURIComponent('Olá! Gostaria de marcar uma consulta na Santiclinic.');
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  };
+
   // WhatsApp icon component
   const WhatsAppIcon = () => (
     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -85,7 +95,7 @@ const Navbar: React.FC = () => {
 
         {/* Right Section - CTA Button & Language Selector */}
         <div className="navbar__actions">
-          <button className="navbar__cta-btn">
+          <button className="navbar__cta-btn" onClick={handleWhatsAppClick}>
             <WhatsAppIcon />
             MARCAR CONSULTA
           </button>
@@ -164,7 +174,13 @@ const Navbar: React.FC = () => {
           </ul>
 
           <div className="navbar__mobile-actions">
-            <button className="navbar__mobile-cta-btn" onClick={closeMenu}>
+            <button 
+              className="navbar__mobile-cta-btn" 
+              onClick={() => {
+                handleWhatsAppClick();
+                closeMenu();
+              }}
+            >
               <WhatsAppIcon />
               MARCAR CONSULTA
             </button>
