@@ -26,7 +26,7 @@ const WhyChoose: React.FC = () => {
   ];
 
   return (
-    <section className="why-choose">
+    <section id="why-choose" className="why-choose">
       <div className="why-choose__container">
         {/* Left Image Section */}
         <div className="why-choose__image-section">

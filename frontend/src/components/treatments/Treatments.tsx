@@ -53,7 +53,7 @@ const Treatments: React.FC = () => {
   };
 
   return (
-    <section className="treatments">
+    <section id="treatments" className="treatments">
       <div className="treatments__container">
         {/* Left Content Section */}
         <div className="treatments__content">

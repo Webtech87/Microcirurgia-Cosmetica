@@ -182,7 +182,7 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <section className="contact">
+    <section id="contact" className="contact">
       <div className="contact__container">
         {/* Left Side - Company Info */}
         <div className="contact__info">

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +28,13 @@ const Navbar: React.FC = () => {
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     
-    // Scroll to top smoothly and stay there
+    // If not on home page, navigate to home first
+    if (location.pathname !== '/') {
+      navigate('/');
+      return;
+    }
+    
+    // If on home page, scroll to top
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -35,6 +44,51 @@ const Navbar: React.FC = () => {
     if (window.history.scrollRestoration) {
       window.history.scrollRestoration = 'manual';
     }
+  };
+
+  // Function to handle smooth scrolling to sections
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 100; // Account for navbar height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Function to handle navigation - go to home page first if needed, then scroll
+  const handleSectionNavigation = (sectionId: string) => {
+    closeMenu(); // Close mobile menu if open
+    
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home page first
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 100);
+    } else {
+      // If already on home page, just scroll
+      scrollToSection(sectionId);
+    }
+  };
+
+  // Navigation link handlers
+  const handleTecnicasClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    handleSectionNavigation('why-choose'); // WhyChoose component section
+  };
+
+  const handleTratamentosClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    handleSectionNavigation('treatments'); // Treatments component section
+  };
+
+  const handleContactoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    handleSectionNavigation('contact'); // Contact component section
   };
 
   // Function to handle WhatsApp redirect
@@ -76,17 +130,29 @@ const Navbar: React.FC = () => {
         <div className="navbar__menu">
           <ul className="navbar__nav">
             <li className="navbar__item">
-              <a href="#santoline" className="navbar__link">
+              <a 
+                href="#why-choose" 
+                className="navbar__link"
+                onClick={handleTecnicasClick}
+              >
                 TECNICAS
               </a>
             </li>
             <li className="navbar__item">
-              <a href="#tratamentos" className="navbar__link">
+              <a 
+                href="#treatments" 
+                className="navbar__link"
+                onClick={handleTratamentosClick}
+              >
                 TRATAMENTOS
               </a>
             </li>
             <li className="navbar__item">
-              <a href="#contacto" className="navbar__link">
+              <a 
+                href="#contact" 
+                className="navbar__link"
+                onClick={handleContactoClick}
+              >
                 CONTACTO
               </a>
             </li>
@@ -157,17 +223,29 @@ const Navbar: React.FC = () => {
           
           <ul className="navbar__mobile-nav">
             <li className="navbar__mobile-item">
-              <a href="#santoline" className="navbar__mobile-link" onClick={closeMenu}>
-              TECNICAS
+              <a 
+                href="#why-choose" 
+                className="navbar__mobile-link" 
+                onClick={handleTecnicasClick}
+              >
+                TECNICAS
               </a>
             </li>
             <li className="navbar__mobile-item">
-              <a href="#tratamentos" className="navbar__mobile-link" onClick={closeMenu}>
+              <a 
+                href="#treatments" 
+                className="navbar__mobile-link" 
+                onClick={handleTratamentosClick}
+              >
                 TRATAMENTOS
               </a>
             </li>
             <li className="navbar__mobile-item">
-              <a href="#contacto" className="navbar__mobile-link" onClick={closeMenu}>
+              <a 
+                href="#contact" 
+                className="navbar__mobile-link" 
+                onClick={handleContactoClick}
+              >
                 CONTACTO
               </a>
             </li>
