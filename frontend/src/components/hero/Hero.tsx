@@ -3,8 +3,16 @@ import './Hero.css';
 
 const Hero: React.FC = () => {
   const handleCTAClick = () => {
-    // Add your CTA logic here
-    console.log('CTA clicked - QUERO SABER MAIS');
+    // Scroll to Contact section
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      const offsetTop = contactElement.offsetTop - 100; // Account for navbar height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+    console.log('CTA clicked - QUERO SABER MAIS - Scrolling to Contact');
   };
 
   return (

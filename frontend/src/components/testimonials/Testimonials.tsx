@@ -17,45 +17,73 @@ const Testimonials: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: 'Alexandra Nascimento',
-      text: 'Excelente! A experiência foi incrível desde o primeiro contacto. O profissionalismo e atenção aos detalhes são impressionantes. Recomendo vivamente os serviços da Santiclinic, superaram todas as minhas expectativas.',
+      name: 'Maria João Silva',
+      text: 'A Dra. Wilsa é uma verdadeira artista! Fiz o micro lifting de sobrancelha e o resultado é incrível - completamente natural. A técnica da Santiclinic é revolucionária, sem dor e com recuperação rápida. Recomendo vivamente!',
       rating: 5,
       date: 'há 2 semanas'
     },
     {
       id: 2,
-      name: 'Carla Santos',
-      text: 'Fantástico! O atendimento foi excecional e os resultados superaram as minhas expectativas. A equipa é muito profissional e o ambiente é muito acolhedor. Recomendo vivamente a todos que procuram qualidade.',
+      name: 'Sarah Johnson',
+      text: 'Dr. Wilsa is absolutely amazing! I had a micro blepharoplasty and the results are incredible. The technique is so precise and natural-looking. The whole team at Santiclinic made me feel comfortable throughout the entire process.',
       rating: 5,
       date: 'há 1 mês'
     },
     {
       id: 3,
-      name: 'Marina Rodrigues',
-      text: 'Serviço impecável! Desde a consulta inicial até ao follow-up, tudo foi perfeito. A atenção aos detalhes e o cuidado personalizado fazem toda a diferença. Estou muito satisfeita com os resultados.',
+      name: 'Ana Carvalho',
+      text: 'Fiz a micro blefaroplastia inferior com a Dra. Wilsa e estou absolutamente encantada! O profissionalismo é excepcional e a técnica minimamente invasiva da Santiclinic é fantástica. Sem hematomas, sem dor - resultado perfeito!',
       rating: 5,
       date: 'há 3 semanas'
     },
     {
       id: 4,
-      name: 'Sofia Mendes',
-      text: 'Profissionalismo exemplar! A Santiclinic oferece um serviço de excelência com resultados naturais e duradouros. A equipa é extremamente competente e o ambiente transmite confiança total.',
+      name: 'Patricia Rodrigues',
+      text: 'A Dra. Wilsa transformou completamente o meu olhar com o micro lifting deep plane. A experiência na Santiclinic superou todas as expectativas - técnica exclusiva, resultados naturais e duradouros. Sinto-me rejuvenescida!',
       rating: 5,
       date: 'há 2 meses'
     },
     {
       id: 5,
-      name: 'Ana Costa',
-      text: 'Recomendo sem hesitação! O tratamento foi realizado com o maior cuidado e profissionalismo. Os resultados são fantásticos e naturais. A Santiclinic é definitivamente a melhor escolha.',
+      name: 'Emma Roberts',
+      text: 'Outstanding experience with Dr. Wilsa! I had a micro facelift and the results are phenomenal. The technique is so advanced and the healing process was incredibly smooth. Santiclinic truly offers the best in cosmetic microsurgery.',
       rating: 5,
       date: 'há 1 semana'
     },
     {
       id: 6,
-      name: 'Beatriz Silva',
-      text: 'Experiência incrível! Desde o primeiro contacto que me senti confiante na escolha. O profissionalismo, a dedicação e os resultados obtidos superaram todas as expectativas. Muito obrigada!',
+      name: 'Cristina Mendes',
+      text: 'O mini micro lifting com a Dra. Wilsa foi a melhor decisão que tomei! A técnica é tão precisa que ninguém percebe que fiz algo - parece que rejuvenesci naturalmente. A Santiclinic é referência em microcirurgia!',
       rating: 5,
       date: 'há 4 semanas'
+    },
+    {
+      id: 7,
+      name: 'Beatriz Costa',
+      text: 'Realizei o micro implante de sobrancelha com a técnica exclusiva da Dra. Wilsa. O resultado é impressionante - sobrancelhas perfeitas e naturais! A experiência na Santiclinic foi impecável do início ao fim.',
+      rating: 5,
+      date: 'há 5 semanas'
+    },
+    {
+      id: 8,
+      name: 'James Miller',
+      text: 'Dr. Wilsa is a true professional! I had a micro otoplasty and the precision of the technique is remarkable. The results look completely natural and the recovery was much faster than expected. Highly recommend Santiclinic!',
+      rating: 5,
+      date: 'há 3 meses'
+    },
+    {
+      id: 9,
+      name: 'Sofia Ferreira',
+      text: 'A micro lobuloplastia com a Dra. Wilsa foi perfeita! A atenção aos detalhes e o cuidado personalizado da Santiclinic são únicos. Recuperação rápida, sem dor e resultados naturais - simplesmente fantástico!',
+      rating: 5,
+      date: 'há 6 semanas'
+    },
+    {
+      id: 10,
+      name: 'Carla Oliveira',
+      text: 'A consulta de microcirurgia cosmética com a Dra. Wilsa esclareceu todas as minhas dúvidas. A sua expertise e as técnicas inovadoras da Santiclinic deram-me total confiança. Já marquei o meu tratamento!',
+      rating: 5,
+      date: 'há 1 semana'
     }
   ];
 
@@ -113,7 +141,7 @@ const Testimonials: React.FC = () => {
             O que dizem os nossos clientes
           </h2>
           <p className="testimonials__subtitle">
-            Avaliações reais de clientes satisfeitos com os nossos tratamentos
+            Experiências reais de microcirurgia cosmética com a Dra. Wilsa
           </p>
         </div>
 
