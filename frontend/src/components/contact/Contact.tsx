@@ -228,8 +228,8 @@ const Contact: React.FC = () => {
                       rel="noopener noreferrer"
                       className="contact__detail-link"
                     >
-                      <span>Rua da Beleza, 123</span>
-                      <span>1000-001 Lisboa</span>
+                      <span>Praceta Agostinho Ferreira Chaves 5 Lj 4 AA, </span>
+                      <span>8005-328 Faro</span>
                     </a>
                   </div>
                 </div>
