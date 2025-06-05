@@ -184,6 +184,14 @@ const PopupForm: React.FC = () => {
     }
   };
 
+  const handlePrivacyLinkClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Close the popup first
+    closePopup();
+    // Navigate to privacy policy page
+    window.location.href = '/politica-privacidade';
+  };
+
   if (!isVisible) return null;
 
   return (
@@ -299,7 +307,13 @@ const PopupForm: React.FC = () => {
 
               <p className="popup-form__privacy">
                 🔒 Os seus dados estão seguros connosco. 
-                <a href="#" className="popup-form__privacy-link">Política de Privacidade</a>
+                <a 
+                  href="/politica-privacidade" 
+                  className="popup-form__privacy-link"
+                  onClick={handlePrivacyLinkClick}
+                >
+                  Política de Privacidade
+                </a>
               </p>
             </form>
           </div>

@@ -210,7 +210,7 @@ const Contact: React.FC = () => {
                 <div className="contact__detail-item">
                   <span className="contact__detail-icon">📞</span>
                   <div className="contact__detail-content">
-                    <a href="tel:+351912345678" className="contact__detail-link">+351 912 345 678</a>
+                    <a href="tel:+351915007427" className="contact__detail-link">+351 915 007 427</a>
                   </div>
                 </div>
                 <div className="contact__detail-item">
@@ -239,9 +239,9 @@ const Contact: React.FC = () => {
             <div className="contact__detail-group">
               <h3 className="contact__detail-title">Políticas</h3>
               <div className="contact__detail-items">
-                <a href="#" className="contact__detail-link">Política de Privacidade</a>
-                <a href="#" className="contact__detail-link">Política de Cookies</a>
-                <a href="#" className="contact__detail-link">Termos e Condições</a>
+                <a href="/politica-privacidade" className="contact__detail-link">Política de Privacidade</a>
+                <a href="/politica-cookies" className="contact__detail-link">Política de Cookies</a>
+                <a href="/termos-condicoes" className="contact__detail-link">Termos e Condições</a>
               </div>
             </div>
           </div>
@@ -325,7 +325,7 @@ const Contact: React.FC = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className={`contact__form-input ${errors.phone ? 'contact__form-input--error' : ''}`}
-                    placeholder="912345678"
+                    placeholder="915007427"
                     required
                   />
                   {errors.phone && (
@@ -383,7 +383,7 @@ const Contact: React.FC = () => {
               <div className="contact__form-privacy">
                 <p>
                   Ao enviar este formulário, aceita a nossa{' '}
-                  <a href="#" className="contact__form-privacy-link">
+                  <a href="/politica-privacidade" className="contact__form-privacy-link">
                     Política de Privacidade
                   </a>
                 </p>

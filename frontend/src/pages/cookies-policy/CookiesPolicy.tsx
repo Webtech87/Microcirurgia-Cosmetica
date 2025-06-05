@@ -381,13 +381,13 @@ const CookiesPolicy: React.FC = () => {
 
               <div className="cookies-policy__contact">
                 <div className="cookies-policy__contact-item">
-                  <strong>Email:</strong> privacidade@santiclinic.pt
+                  <strong>Email:</strong> geral@santiclinic.eu
                 </div>
                 <div className="cookies-policy__contact-item">
-                  <strong>Telefone:</strong> +351 XXX XXX XXX
+                  <strong>Telefone:</strong> +351 915 007 427
                 </div>
                 <div className="cookies-policy__contact-item">
-                  <strong>Morada:</strong> [Endereço da Santiclinic]
+                  <strong>Morada:</strong> Praceta Agostinho Ferreira Chaves 5 Lj 4 AA, 8005-328 Faro
                 </div>
               </div>
 

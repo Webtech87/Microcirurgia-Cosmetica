@@ -273,16 +273,16 @@ const PrivacyPolicy: React.FC = () => {
 
               <div className="privacy-policy__contact">
                 <div className="privacy-policy__contact-item">
-                  <strong>Email:</strong> privacidade@santiclinic.pt
+                  <strong>Email:</strong> geral@santiclinic.eu
                 </div>
                 <div className="privacy-policy__contact-item">
-                  <strong>Telefone:</strong> +351 XXX XXX XXX
+                  <strong>Telefone:</strong> +351 915 007 427
                 </div>
                 <div className="privacy-policy__contact-item">
-                  <strong>Morada:</strong> [Endereço da Santiclinic]
+                  <strong>Morada:</strong> Praceta Agostinho Ferreira Chaves 5 Lj 4 AA, 8005-328 Faro
                 </div>
                 <div className="privacy-policy__contact-item">
-                  <strong>Encarregado de Proteção de Dados:</strong> dpo@santiclinic.pt
+                  <strong>Encarregado de Proteção de Dados:</strong> geral@santiclinic.eu
                 </div>
               </div>
 

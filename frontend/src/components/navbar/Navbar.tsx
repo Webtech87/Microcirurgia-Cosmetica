@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
           <ul className="navbar__nav">
             <li className="navbar__item">
               <a href="#santoline" className="navbar__link">
-                SANTICLINIC
+                TECNICAS
               </a>
             </li>
             <li className="navbar__item">
@@ -158,7 +158,7 @@ const Navbar: React.FC = () => {
           <ul className="navbar__mobile-nav">
             <li className="navbar__mobile-item">
               <a href="#santoline" className="navbar__mobile-link" onClick={closeMenu}>
-                SANTICLINIC
+              TECNICAS
               </a>
             </li>
             <li className="navbar__mobile-item">

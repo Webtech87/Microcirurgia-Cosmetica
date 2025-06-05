@@ -12,6 +12,7 @@ import PopupForm from './components/popup-form';
 import CookiesBanner from './components/cookies-banner';
 import PrivacyPolicy from './pages/privacy-policy';
 import CookiesPolicy from './pages/cookies-policy';
+import TermsConditions from './pages/terms-conditions/TermsConditions';
 import VideoTestimonials from './components/videoslider';
 import './App.css';
 
@@ -53,6 +54,17 @@ function App() {
             <>
               <Navbar />
               <CookiesPolicy />
+              <Footer />
+              <WhatsAppFloat />
+              <CookiesBanner />
+            </>
+          } />
+
+          {/* Terms & Conditions Route - THIS WAS MISSING! */}
+          <Route path="/termos-condicoes" element={
+            <>
+              <Navbar />
+              <TermsConditions />
               <Footer />
               <WhatsAppFloat />
               <CookiesBanner />
