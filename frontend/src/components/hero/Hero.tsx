@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
             {/* Before/After Image */}
             <div className="hero__image-wrapper">
               <img 
-                src="/images/hero-before-after.jpg" 
+                src="/images/homem.PNG" 
                 alt="Microcirurgia Coméstica - Resultado Natural" 
                 className="hero__image"
               />

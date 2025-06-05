@@ -115,7 +115,7 @@ const Treatments: React.FC = () => {
           <div className="treatments__image-container">
             <div className="treatments__image-wrapper">
               <img 
-                src="/images/treatments-before-after.jpg" 
+                src="/images/claudia.PNG" 
                 alt="Tratamentos Santiclinic - Antes e Depois" 
                 className="treatments__image"
               />
