@@ -21,11 +21,13 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+    text-align: center; /* Center all content */
   }
   
   .contact__logo {
     display: flex;
     align-items: center;
+    justify-content: center; /* Center the logo */
     gap: 12px;
   }
   
@@ -44,6 +46,7 @@
   
   .contact__description {
     max-width: 400px;
+    margin: 0 auto; /* Center the description */
   }
   
   .contact__description p {
@@ -51,18 +54,23 @@
     line-height: 1.6;
     color: #666666;
     margin: 0;
+    text-align: center; /* Center the text */
   }
   
   .contact__details {
     display: flex;
     flex-direction: column;
     gap: 32px;
+    align-items: center; /* Center the detail groups */
   }
   
   .contact__detail-group {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    align-items: center; /* Center items within each group */
+    width: 100%;
+    max-width: 300px; /* Limit width for better readability */
   }
   
   .contact__detail-title {
@@ -70,21 +78,26 @@
     font-weight: 600;
     color: #2c2c2c;
     margin: 0;
+    text-align: center; /* Center the titles */
   }
   
   .contact__detail-items {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    align-items: center; /* Center the items */
+    width: 100%;
   }
   
   .contact__detail-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center; /* Changed from flex-start to center */
+    justify-content: center; /* Center the content */
     gap: 12px;
     font-size: 14px;
     color: #666666;
     line-height: 1.5;
+    text-align: center; /* Center the text */
   }
   
   .contact__detail-icon {
@@ -93,11 +106,20 @@
     margin-top: 2px;
   }
   
+  /* Updated contact detail content layout */
+  .contact__detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: center; /* Center the content text */
+  }
+  
   .contact__detail-link {
     color: #666666;
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
+    text-align: center; /* Center the links */
   }
   
   .contact__detail-link:hover {
@@ -106,6 +128,8 @@
   
   .contact__social {
     margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Center the social button */
   }
   
   .contact__social-btn {
@@ -134,7 +158,7 @@
   
   .contact__form-container {
     background: #F4D03F;
-    border-radius: 20px;
+    border-radius: 200px 200px 50px 200px; /* Updated to match other sections */
     padding: 40px;
     box-shadow: none;
     border: none;
@@ -193,6 +217,7 @@
   }
   
   .contact__form-input,
+  .contact__form-select,
   .contact__form-textarea {
     padding: 14px 16px;
     border: 2px solid transparent;
@@ -205,7 +230,18 @@
     resize: vertical;
   }
   
+  .contact__form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+  
   .contact__form-input:focus,
+  .contact__form-select:focus,
   .contact__form-textarea:focus {
     outline: none;
     border-color: #F1C40F;
@@ -218,11 +254,13 @@
   }
   
   .contact__form-input--error,
+  .contact__form-select--error,
   .contact__form-textarea--error {
     border-color: #e74c3c;
   }
   
   .contact__form-input--error:focus,
+  .contact__form-select--error:focus,
   .contact__form-textarea--error:focus {
     border-color: #e74c3c;
     box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
@@ -262,12 +300,12 @@
   }
   
   .contact__form-submit {
-    background: #2c2c2c;
+    background: #4CAF50; /* Changed to green */
     color: white;
     border: none;
-    padding: 16px 32px;
-    border-radius: 25px;
-    font-size: 14px;
+    padding: 12px 24px; /* Reduced from 16px 32px */
+    border-radius: 20px; /* Reduced from 25px */
+    font-size: 13px; /* Reduced from 14px */
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -276,14 +314,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px; /* Reduced from 8px */
     margin-top: 8px;
+    box-shadow: 0 2px 10px rgba(76, 175, 80, 0.3);
+    width: fit-content; /* Added to make button only as wide as content */
+    align-self: center; /* Changed from flex-start to center */
   }
   
   .contact__form-submit:hover:not(:disabled) {
-    background: #1a1a1a;
+    background: #45a049; /* Darker green on hover */
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(44, 44, 44, 0.3);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
   }
   
   .contact__form-submit:disabled {
@@ -315,7 +356,7 @@
     text-align: center;
     padding: 80px 40px;
     background: white;
-    border-radius: 20px;
+    border-radius: 200px 200px 50px 200px; /* Updated to match form */
     box-shadow: none;
     border: none;
   }
@@ -442,7 +483,7 @@
     
     .contact__form-container {
       padding: 24px;
-      border-radius: 16px;
+      border-radius: 100px 100px 25px 100px; /* Adjusted for mobile */
     }
     
     .contact__form-title {
@@ -454,14 +495,20 @@
     }
     
     .contact__form-input,
+    .contact__form-select,
     .contact__form-textarea {
       padding: 12px 14px;
       font-size: 13px;
     }
     
+    .contact__form-select {
+      padding-right: 36px;
+      background-size: 14px;
+    }
+    
     .contact__form-submit {
-      padding: 14px 24px;
-      font-size: 13px;
+      padding: 10px 20px; /* Reduced from 14px 24px */
+      font-size: 12px; /* Reduced from 13px */
     }
     
     .contact__logo-text {
@@ -470,6 +517,7 @@
     
     .contact__success {
       padding: 40px 20px;
+      border-radius: 100px 100px 25px 100px; /* Adjusted for mobile */
     }
     
     .contact__success-icon {
@@ -516,12 +564,13 @@
   
   /* Accessibility improvements */
   .contact__form-input:focus-visible,
+  .contact__form-select:focus-visible,
   .contact__form-textarea:focus-visible {
     outline: 2px solid #F1C40F;
     outline-offset: 2px;
   }
   
   .contact__form-submit:focus-visible {
-    outline: 2px solid #F4D03F;
+    outline: 2px solid #4CAF50;
     outline-offset: 2px;
   }

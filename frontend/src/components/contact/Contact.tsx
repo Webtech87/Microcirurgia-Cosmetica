@@ -30,6 +30,20 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const assuntoOptions = [
+    { value: '', label: 'Selecione um assunto' },
+    { value: 'consulta', label: 'Agendar Consulta' },
+    { value: 'micro-lifting-sobrancelha', label: 'Micro lifting de sobrancelha' },
+    { value: 'micro-bichectomia-superior', label: 'Micro bichectomia superior' },
+    { value: 'micro-bichectomia-inferior', label: 'Micro bichectomia inferior' },
+    { value: 'micro-lifting-deep-face', label: 'Micro lifting deep face' },
+    { value: 'mini-mass-lifting', label: 'Mini mass lifting' },
+    { value: 'micro-implante-sobrancelha', label: 'Micro implante de sobrancelha' },
+    { value: 'micro-rinoplastia', label: 'Micro rinoplastia' },
+    { value: 'informacoes', label: 'Informações Gerais' },
+    { value: 'outro', label: 'Outro' }
+  ];
+
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
@@ -57,7 +71,7 @@ const Contact: React.FC = () => {
     }
 
     // Assunto validation
-    if (!formData.assunto.trim()) {
+    if (!formData.assunto) {
       newErrors.assunto = 'O assunto é obrigatório';
     }
 
@@ -72,7 +86,7 @@ const Contact: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -169,15 +183,22 @@ const Contact: React.FC = () => {
               <div className="contact__detail-items">
                 <div className="contact__detail-item">
                   <span className="contact__detail-icon">📞</span>
-                  <span>+351 912 345 678</span>
+                  <div className="contact__detail-content">
+                    <span>+351 912 345 678</span>
+                  </div>
                 </div>
                 <div className="contact__detail-item">
                   <span className="contact__detail-icon">✉️</span>
-                  <span>info@santiclinic.pt</span>
+                  <div className="contact__detail-content">
+                    <span>info@santiclinic.pt</span>
+                  </div>
                 </div>
                 <div className="contact__detail-item">
                   <span className="contact__detail-icon">📍</span>
-                  <span>Rua da Beleza, 123<br />1000-001 Lisboa</span>
+                  <div className="contact__detail-content">
+                    <span>Rua da Beleza, 123</span>
+                    <span>1000-001 Lisboa</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -279,16 +300,20 @@ const Contact: React.FC = () => {
                   <label htmlFor="assunto" className="contact__form-label">
                     Assunto *
                   </label>
-                  <input
-                    type="text"
+                  <select
                     id="assunto"
                     name="assunto"
                     value={formData.assunto}
                     onChange={handleInputChange}
-                    className={`contact__form-input ${errors.assunto ? 'contact__form-input--error' : ''}`}
-                    placeholder="Consulta / Tratamento / Informações"
+                    className={`contact__form-select ${errors.assunto ? 'contact__form-input--error' : ''}`}
                     required
-                  />
+                  >
+                    {assuntoOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
                   {errors.assunto && (
                     <span className="contact__form-error">{errors.assunto}</span>
                   )}
