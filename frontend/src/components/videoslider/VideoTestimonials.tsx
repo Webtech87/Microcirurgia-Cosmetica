@@ -12,6 +12,7 @@ interface VideoTestimonial {
 const VideoTestimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Sample testimonial data - replace with your actual video URLs
@@ -46,10 +47,38 @@ const VideoTestimonials: React.FC = () => {
     },
   ];
 
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+      const isSmallScreen = window.innerWidth <= 768;
+      setIsMobile(isMobileDevice || isSmallScreen);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Extract YouTube video ID from URL
   const getYouTubeVideoId = (url: string): string => {
     const match = url.match(/(?:youtube\.com\/shorts\/|youtu\.be\/|youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})/);
     return match ? match[1] : '';
+  };
+
+  // Convert YouTube Shorts to regular video URL for mobile
+  const getVideoEmbedUrl = (url: string): string => {
+    const videoId = getYouTubeVideoId(url);
+    if (!videoId) return '';
+    
+    if (isMobile) {
+      // For mobile, use nocookie domain and additional parameters to prevent redirects
+      return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&mute=0&controls=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=1&origin=${window.location.origin}&enablejsapi=1&widgetid=1`;
+    } else {
+      // For desktop, use standard embed
+      return `https://www.youtube.com/embed/${videoId}?autoplay=0&mute=0&controls=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&disablekb=1`;
+    }
   };
 
   // Auto-advance carousel
@@ -69,8 +98,14 @@ const VideoTestimonials: React.FC = () => {
     };
   }, [isPlaying, testimonials.length]);
 
-  // Handle video interaction (clicking on iframe)
-  const handleVideoInteraction = () => {
+  // Handle video interaction with mobile considerations
+  const handleVideoInteraction = (e: React.MouseEvent) => {
+    if (isMobile) {
+      // Prevent default mobile behavior
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
     setIsPlaying(true);
     
     // Pause auto-advance when user interacts with video
@@ -140,16 +175,58 @@ const VideoTestimonials: React.FC = () => {
                 }`}
               >
                 <div className="video-testimonials__video-container">
-                  <iframe
-                    className="video-testimonials__video"
-                    src={`https://www.youtube.com/embed/${getYouTubeVideoId(testimonial.videoUrl)}?autoplay=0&mute=0&controls=1&rel=0&modestbranding=1`}
-                    title={`${testimonial.clientName} - ${testimonial.treatment}`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    onClick={handleVideoInteraction}
-                  />
+                  {isMobile ? (
+                    // Mobile: Use a clickable overlay that opens video in a controlled way
+                    <div className="video-testimonials__mobile-container">
+                      <div 
+                        className="video-testimonials__mobile-thumbnail"
+                        style={{
+                          backgroundImage: `url(https://img.youtube.com/vi/${getYouTubeVideoId(testimonial.videoUrl)}/maxresdefault.jpg)`
+                        }}
+                      >
+                        <div className="video-testimonials__play-overlay">
+                          <div className="video-testimonials__play-button">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                              <circle cx="30" cy="30" r="30" fill="rgba(244, 208, 63, 0.9)"/>
+                              <path d="M25 20L40 30L25 40V20Z" fill="#2c2c2c"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <iframe
+                        className={`video-testimonials__video ${isPlaying ? 'video-testimonials__video--playing' : ''}`}
+                        src={isPlaying ? getVideoEmbedUrl(testimonial.videoUrl) : ''}
+                        title={`${testimonial.clientName} - ${testimonial.treatment}`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+                      />
+                    </div>
+                  ) : (
+                    // Desktop: Direct iframe embed
+                    <iframe
+                      className="video-testimonials__video"
+                      src={getVideoEmbedUrl(testimonial.videoUrl)}
+                      title={`${testimonial.clientName} - ${testimonial.treatment}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      onClick={handleVideoInteraction}
+                      sandbox="allow-scripts allow-same-origin allow-presentation"
+                    />
+                  )}
                 </div>
+
+                {/* Mobile Play Button Overlay */}
+                {isMobile && !isPlaying && (
+                  <div 
+                    className="video-testimonials__mobile-play-trigger"
+                    onClick={handleVideoInteraction}
+                  >
+                    <span>Toque para reproduzir</span>
+                  </div>
+                )}
 
                 {/* Client Info */}
                 <div className="video-testimonials__info">

@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import './PopupForm.css';
 
 interface FormData {
-  nome: string;
+  name: string;
   email: string;
-  telefone: string;
+  phone: string;
+  subject: string;
+  msg: string;
 }
 
 interface FormErrors {
-  nome?: string;
+  name?: string;
   email?: string;
-  telefone?: string;
+  phone?: string;
+  subject?: string;
+  msg?: string;
 }
 
 const PopupForm: React.FC = () => {
@@ -18,9 +22,11 @@ const PopupForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState<FormData>({
-    nome: '',
+    name: '',
     email: '',
-    telefone: ''
+    phone: '',
+    subject: 'c_m_cosmética', // Default to consultation
+    msg: 'Solicitação de consulta através do formulário popup.'
   });
   const [errors, setErrors] = useState<FormErrors>({});
 
@@ -61,27 +67,31 @@ const PopupForm: React.FC = () => {
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    // Nome validation
-    if (!formData.nome.trim()) {
-      newErrors.nome = 'O nome é obrigatório';
-    } else if (formData.nome.trim().length < 2) {
-      newErrors.nome = 'O nome deve ter pelo menos 2 caracteres';
+    // Nome validation (aligned with Flask form)
+    if (!formData.name.trim()) {
+      newErrors.name = 'O nome é obrigatório';
+    } else if (formData.name.trim().length < 4) {
+      newErrors.name = 'O nome deve ter pelo menos 4 caracteres';
+    } else if (formData.name.trim().length > 20) {
+      newErrors.name = 'O nome deve ter no máximo 20 caracteres';
     }
 
-    // Email validation
+    // Email validation (aligned with Flask form)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
       newErrors.email = 'O email é obrigatório';
     } else if (!emailRegex.test(formData.email)) {
       newErrors.email = 'Por favor, insira um email válido';
+    } else if (formData.email.length < 6 || formData.email.length > 35) {
+      newErrors.email = 'O email deve ter entre 6 e 35 caracteres';
     }
 
-    // Telefone validation
-    const phoneRegex = /^[\d\s+()-]{9,}$/;
-    if (!formData.telefone.trim()) {
-      newErrors.telefone = 'O telefone é obrigatório';
-    } else if (!phoneRegex.test(formData.telefone.replace(/\s/g, ''))) {
-      newErrors.telefone = 'Por favor, insira um telefone válido';
+    // Telefone validation (aligned with Flask form - numbers only)
+    const phoneRegex = /^\d{9,15}$/;
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'O telefone é obrigatório';
+    } else if (!phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
+      newErrors.phone = 'Por favor, insira um telefone válido (apenas números, 9-15 dígitos)';
     }
 
     setErrors(newErrors);
@@ -114,20 +124,51 @@ const PopupForm: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      console.log('Popup form submitted:', formData);
-      
-      setIsSubmitted(true);
-      
-      // Auto-close after success
-      setTimeout(() => {
-        closePopup();
-      }, 3000);
-      
+      // Create FormData object to match Flask's expected format
+      const submitData = new FormData();
+      submitData.append('name', formData.name);
+      submitData.append('email', formData.email);
+      submitData.append('phone', formData.phone);
+      submitData.append('subject', formData.subject);
+      submitData.append('msg', formData.msg);
+
+      const response = await fetch('http://localhost:5000/', {
+        method: 'POST',
+        body: submitData,
+        credentials: 'include', // Include cookies for CORS
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        
+        // Auto-close after success
+        setTimeout(() => {
+          closePopup();
+          // Reset form data for next time
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            subject: 'c_m_cosmética',
+            msg: 'Solicitação de consulta através do formulário popup.'
+          });
+          setIsSubmitted(false);
+        }, 3000);
+        
+      } else {
+        // Handle validation errors from backend
+        if (result.errors) {
+          setErrors(result.errors);
+        } else {
+          console.error('Submission failed:', result.message);
+          alert('Erro ao enviar formulário: ' + (result.message || 'Erro desconhecido'));
+        }
+      }
     } catch (error) {
       console.error('Error submitting popup form:', error);
+      alert('Erro de conexão. Tente novamente mais tarde.');
     } finally {
       setIsSubmitting(false);
     }
@@ -184,15 +225,15 @@ const PopupForm: React.FC = () => {
               <div className="popup-form__form-group">
                 <input
                   type="text"
-                  name="nome"
-                  value={formData.nome}
+                  name="name"
+                  value={formData.name}
                   onChange={handleInputChange}
-                  className={`popup-form__input ${errors.nome ? 'popup-form__input--error' : ''}`}
+                  className={`popup-form__input ${errors.name ? 'popup-form__input--error' : ''}`}
                   placeholder="O seu nome completo *"
                   required
                 />
-                {errors.nome && (
-                  <span className="popup-form__error">{errors.nome}</span>
+                {errors.name && (
+                  <span className="popup-form__error">{errors.name}</span>
                 )}
               </div>
 
@@ -214,15 +255,15 @@ const PopupForm: React.FC = () => {
               <div className="popup-form__form-group">
                 <input
                   type="tel"
-                  name="telefone"
-                  value={formData.telefone}
+                  name="phone"
+                  value={formData.phone}
                   onChange={handleInputChange}
-                  className={`popup-form__input ${errors.telefone ? 'popup-form__input--error' : ''}`}
-                  placeholder="O seu número de telefone *"
+                  className={`popup-form__input ${errors.phone ? 'popup-form__input--error' : ''}`}
+                  placeholder="O seu número de telefone (apenas números) *"
                   required
                 />
-                {errors.telefone && (
-                  <span className="popup-form__error">{errors.telefone}</span>
+                {errors.phone && (
+                  <span className="popup-form__error">{errors.phone}</span>
                 )}
               </div>
 
