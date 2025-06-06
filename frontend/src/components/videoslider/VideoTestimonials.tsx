@@ -14,26 +14,19 @@ const VideoTestimonials: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
-  const [activeVideo, setActiveVideo] = useState<number | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Sample testimonial data - replace with your actual video URLs
   const testimonials: VideoTestimonial[] = [
     {
       id: 1,
       videoUrl: "https://youtube.com/shorts/jOgsU2sbqIc?si=ADBorJH0p0zgvs0d",
       clientName: "Erica",
-      clientName: "Erica",
       treatment: "Micro lifting de sobrancelha",
-      location: "Faro"
       location: "Faro"
     },
     {
       id: 3,
       videoUrl: "https://youtube.com/shorts/InEXgVAIlZI?si=shok3t-naPvmXzxM",
-      clientName: "Neuza",
-      treatment: "Tratamento Facial Rejuvenescimento",
-      location: "Faro"
       clientName: "Neuza",
       treatment: "Tratamento Facial Rejuvenescimento",
       location: "Faro"
@@ -61,12 +54,11 @@ const VideoTestimonials: React.FC = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Extract YouTube video ID from URL
   const getYouTubeVideoId = (url: string): string => {
     const regexes = [
-      /youtu\.be\/([a-zA-Z0-9_-]{11})/,                // youtu.be/VIDEOID
-      /youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})/,   // youtube.com/watch?v=VIDEOID
-      /youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/,       // youtube.com/shorts/VIDEOID (ID length can vary)
+      /youtu\.be\/([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/,
     ];
 
     for (const regex of regexes) {
@@ -79,25 +71,20 @@ const VideoTestimonials: React.FC = () => {
     return '';
   };
 
-  // Convert YouTube Shorts to regular video URL
-  // Convert YouTube Shorts to regular video URL
   const getVideoEmbedUrl = (url: string): string => {
     const videoId = getYouTubeVideoId(url);
     if (!videoId) return '';
-    
-    // Use consistent embed URL for both mobile and desktop
     return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&fs=1&enablejsapi=1`;
   };
 
   // Auto-advance carousel
   useEffect(() => {
     if (!isPlaying && activeVideo === null) {
-    if (!isPlaying && activeVideo === null) {
       intervalRef.current = setInterval(() => {
-        setCurrentIndex((prevIndex) => 
+        setCurrentIndex((prevIndex) =>
           prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
         );
-      }, 5000); // Change every 5 seconds
+      }, 5000);
     }
 
     return () => {
@@ -106,35 +93,27 @@ const VideoTestimonials: React.FC = () => {
       }
     };
   }, [isPlaying, activeVideo, testimonials.length]);
-  }, [isPlaying, activeVideo, testimonials.length]);
 
-  // Handle desktop video interaction
   const handleDesktopVideoInteraction = (testimonialId: number) => {
     setActiveVideo(testimonialId);
     setIsPlaying(true);
-    
-    // Pause auto-advance when user interacts with video
+
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
-    
-    // Resume auto-advance after 30 seconds of interaction
+
     setTimeout(() => {
       setIsPlaying(false);
-      setActiveVideo(null);
       setActiveVideo(null);
     }, 30000);
   };
 
-  // Handle dot navigation
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
     setIsPlaying(false);
     setActiveVideo(null);
-    setActiveVideo(null);
   };
 
-  // Pause auto-advance on hover
   const handleMouseEnter = () => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -143,9 +122,8 @@ const VideoTestimonials: React.FC = () => {
 
   const handleMouseLeave = () => {
     if (!isPlaying && activeVideo === null) {
-    if (!isPlaying && activeVideo === null) {
       intervalRef.current = setInterval(() => {
-        setCurrentIndex((prevIndex) => 
+        setCurrentIndex((prevIndex) =>
           prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
         );
       }, 5000);
@@ -155,7 +133,6 @@ const VideoTestimonials: React.FC = () => {
   return (
     <section className="video-testimonials">
       <div className="video-testimonials__container">
-        {/* Section Header */}
         <div className="video-testimonials__header">
           <h2 className="video-testimonials__title">
             Experiências Reais
@@ -165,20 +142,19 @@ const VideoTestimonials: React.FC = () => {
           </p>
         </div>
 
-        {/* Video Carousel */}
-        <div 
+        <div
           className="video-testimonials__carousel"
           onMouseEnter={isMobile ? undefined : handleMouseEnter}
           onMouseLeave={isMobile ? undefined : handleMouseLeave}
         >
-          <div 
+          <div
             className="video-testimonials__track"
             style={{
               transform: `translateX(-${currentIndex * 100}%)`,
             }}
           >
             {testimonials.map((testimonial, index) => (
-              <div 
+              <div
                 key={testimonial.id}
                 className={`video-testimonials__slide ${
                   index === currentIndex ? 'video-testimonials__slide--active' : ''
@@ -196,7 +172,7 @@ const VideoTestimonials: React.FC = () => {
                       sandbox="allow-scripts allow-same-origin allow-presentation"
                     />
                   ) : (
-                    <div 
+                    <div
                       className="video-testimonials__thumbnail"
                       onClick={() => handleDesktopVideoInteraction(testimonial.id)}
                       style={{
@@ -212,8 +188,6 @@ const VideoTestimonials: React.FC = () => {
                   )}
                 </div>
 
-
-                {/* Client Info */}
                 <div className="video-testimonials__info">
                   <h3 className="video-testimonials__client-name">
                     {testimonial.clientName}
@@ -230,7 +204,6 @@ const VideoTestimonials: React.FC = () => {
           </div>
         </div>
 
-        {/* Progress Dots */}
         <div className="video-testimonials__dots">
           {testimonials.map((_, index) => (
             <button
@@ -244,9 +217,8 @@ const VideoTestimonials: React.FC = () => {
           ))}
         </div>
 
-        {/* Progress Bar */}
         <div className="video-testimonials__progress">
-          <div 
+          <div
             className="video-testimonials__progress-bar"
             style={{
               width: `${((currentIndex + 1) / testimonials.length) * 100}%`
