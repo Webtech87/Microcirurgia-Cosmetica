@@ -66,7 +66,7 @@ function App() {
           <Route path="/politica-privacidade" element={
             <>
               <Navbar />
-              <ScrollFadeWrapper>
+              <ScrollFadeWrapper delay={200} animateOnce={true}>
                 <PrivacyPolicy />
               </ScrollFadeWrapper>
               <ScrollFadeWrapper delay={200} animateOnce={true}>
@@ -82,9 +82,7 @@ function App() {
           <Route path="/politica-cookies" element={
             <>
               <Navbar />
-              <CookiesPolicy />
-              <Footer />
-              <ScrollFadeWrapper>
+              <ScrollFadeWrapper delay={200} animateOnce={true}>
                 <CookiesPolicy />
               </ScrollFadeWrapper>
               <ScrollFadeWrapper delay={200} animateOnce={true}>
@@ -99,7 +97,7 @@ function App() {
           <Route path="/termos-condicoes" element={
             <>
               <Navbar />
-              <ScrollFadeWrapper>
+              <ScrollFadeWrapper delay={200} animateOnce={true}>
                 <TermsConditions />
               </ScrollFadeWrapper>
               <ScrollFadeWrapper delay={200} animateOnce={true}>

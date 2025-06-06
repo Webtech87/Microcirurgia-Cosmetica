@@ -29,6 +29,14 @@ const ScrollFadeWrapper: React.FC<ScrollFadeWrapperProps> = ({
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    const currentElement = elementRef.current;
+
+    if (animateOnce && currentElement) {
+      // Force visibility on first mount for full-page route views
+      setIsVisible(true);
+      setHasAnimated(true);
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -61,8 +69,7 @@ const ScrollFadeWrapper: React.FC<ScrollFadeWrapperProps> = ({
         rootMargin: '20px 0px -20px 0px' // Adjusted for better bidirectional detection
       }
     );
-
-    const currentElement = elementRef.current;
+    
     if (currentElement) {
       observer.observe(currentElement);
     }
