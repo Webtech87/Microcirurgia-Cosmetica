@@ -57,8 +57,20 @@ const VideoTestimonials: React.FC = () => {
 
   // Extract YouTube video ID from URL
   const getYouTubeVideoId = (url: string): string => {
-    const match = url.match(/(?:youtube\.com\/shorts\/|youtu\.be\/|youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})/);
-    return match ? match[1] : '';
+    const regexes = [
+      /youtu\.be\/([a-zA-Z0-9_-]{11})/,                // youtu.be/VIDEOID
+      /youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})/,   // youtube.com/watch?v=VIDEOID
+      /youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/,       // youtube.com/shorts/VIDEOID (ID length can vary)
+    ];
+
+    for (const regex of regexes) {
+      const match = url.match(regex);
+      if (match && match[1]) {
+        return match[1];
+      }
+    }
+
+    return '';
   };
 
   // Convert YouTube Shorts to regular video URL
@@ -68,15 +80,6 @@ const VideoTestimonials: React.FC = () => {
     
     // Use consistent embed URL for both mobile and desktop
     return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&cc_load_policy=0&fs=1&enablejsapi=1`;
-  };
-
-  // Get YouTube app URL for mobile direct opening
-  const getYouTubeAppUrl = (url: string): string => {
-    const videoId = getYouTubeVideoId(url);
-    if (!videoId) return url;
-    
-    // Return the original YouTube URL for mobile app opening
-    return `https://www.youtube.com/watch?v=${videoId}`;
   };
 
   // Auto-advance carousel
@@ -95,13 +98,6 @@ const VideoTestimonials: React.FC = () => {
       }
     };
   }, [isPlaying, activeVideo, testimonials.length]);
-
-  // Handle mobile video click - open in YouTube app/browser
-  const handleMobileVideoClick = (testimonial: VideoTestimonial) => {
-    // Open YouTube video in new tab/app
-    const youtubeUrl = getYouTubeAppUrl(testimonial.videoUrl);
-    window.open(youtubeUrl, '_blank', 'noopener,noreferrer');
-  };
 
   // Handle desktop video interaction
   const handleDesktopVideoInteraction = (testimonialId: number) => {
@@ -177,65 +173,33 @@ const VideoTestimonials: React.FC = () => {
                 }`}
               >
                 <div className="video-testimonials__video-container">
-                  {isMobile ? (
-                    // Mobile: Show thumbnail with click to open in YouTube app
+                  {activeVideo === testimonial.id ? (
+                    <iframe
+                      className="video-testimonials__video video-testimonials__video--playing"
+                      src={getVideoEmbedUrl(testimonial.videoUrl)}
+                      title={`${testimonial.clientName} - ${testimonial.treatment}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      sandbox="allow-scripts allow-same-origin allow-presentation"
+                    />
+                  ) : (
                     <div 
-                      className="video-testimonials__mobile-container"
-                      onClick={() => handleMobileVideoClick(testimonial)}
+                      className="video-testimonials__thumbnail"
+                      onClick={() => handleDesktopVideoInteraction(testimonial.id)}
+                      style={{
+                        backgroundImage: `url(https://img.youtube.com/vi/${getYouTubeVideoId(testimonial.videoUrl)}/maxresdefault.jpg)`
+                      }}
                     >
-                      <div 
-                        className="video-testimonials__mobile-thumbnail"
-                        style={{
-                          backgroundImage: `url(https://img.youtube.com/vi/${getYouTubeVideoId(testimonial.videoUrl)}/maxresdefault.jpg)`
-                        }}
-                      >
-                        <div className="video-testimonials__play-overlay">
-                          <div className="video-testimonials__play-button">
-                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                              <circle cx="30" cy="30" r="30" fill="rgba(244, 208, 63, 0.9)"/>
-                              <path d="M25 20L40 30L25 40V20Z" fill="#2c2c2c"/>
-                            </svg>
-                          </div>
-                        </div>
-                        <div className="video-testimonials__mobile-hint">
-                          <span>Toque para abrir no YouTube</span>
+                      <div className="video-testimonials__play-overlay">
+                        <div className="video-testimonials__play-button">
+                          {/* Your play button SVG here */}
                         </div>
                       </div>
                     </div>
-                  ) : (
-                    // Desktop: Show thumbnail or iframe based on active state
-                    <div className="video-testimonials__desktop-container">
-                      {activeVideo === testimonial.id ? (
-                        <iframe
-                          className="video-testimonials__video video-testimonials__video--playing"
-                          src={getVideoEmbedUrl(testimonial.videoUrl)}
-                          title={`${testimonial.clientName} - ${testimonial.treatment}`}
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowFullScreen
-                          sandbox="allow-scripts allow-same-origin allow-presentation"
-                        />
-                      ) : (
-                        <div 
-                          className="video-testimonials__desktop-thumbnail"
-                          onClick={() => handleDesktopVideoInteraction(testimonial.id)}
-                          style={{
-                            backgroundImage: `url(https://img.youtube.com/vi/${getYouTubeVideoId(testimonial.videoUrl)}/maxresdefault.jpg)`
-                          }}
-                        >
-                          <div className="video-testimonials__play-overlay">
-                            <div className="video-testimonials__play-button">
-                              <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                                <circle cx="40" cy="40" r="40" fill="rgba(244, 208, 63, 0.9)"/>
-                                <path d="M32 25L55 40L32 55V25Z" fill="#2c2c2c"/>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
                   )}
                 </div>
+
 
                 {/* Client Info */}
                 <div className="video-testimonials__info">
