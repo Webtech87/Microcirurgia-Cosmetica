@@ -33,7 +33,7 @@ const WhyChoose: React.FC = () => {
           <div className="why-choose__image-container">
             <div className="why-choose__image-wrapper">
               <img 
-                src="/images/Storiea - 3.PNG" 
+                src="/images/Storiea.jpg" 
                 alt="Mulher satisfeita com tratamento Santiclinic" 
                 className="why-choose__image"
               />
