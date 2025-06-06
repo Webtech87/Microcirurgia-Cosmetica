@@ -555,8 +555,12 @@
       width: 100%;
       max-width: 200px;
       margin: 16px auto 0;
-      margin-left: 60%; /* Move button to the right */
-      transform: translateX(-50%); /* Center it from the new position */
+    }
+
+    .form-button-wrapper {
+      display: flex;
+      justify-content: center;
+      padding-left: 25%;
     }
     
     .contact__form-label {

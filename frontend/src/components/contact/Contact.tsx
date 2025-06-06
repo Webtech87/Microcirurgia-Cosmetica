@@ -388,21 +388,22 @@ const Contact: React.FC = () => {
                   </a>
                 </p>
               </div>
-
-              <button 
-                type="submit" 
-                className="contact__form-submit"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <>
-                    <span className="contact__form-spinner"></span>
-                    ENVIANDO...
-                  </>
-                ) : (
-                  'ENVIAR MENSAGEM'
-                )}
-              </button>
+              <div className="form-button-wrapper">
+                <button 
+                  type="submit" 
+                  className="contact__form-submit"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <span className="contact__form-spinner"></span>
+                      ENVIANDO...
+                    </>
+                  ) : (
+                    'ENVIAR MENSAGEM'
+                  )}
+                </button>
+              </div>
             </form>
           </div>
         </div>
