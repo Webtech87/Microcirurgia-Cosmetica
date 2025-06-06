@@ -15,7 +15,6 @@ import CookiesPolicy from './pages/cookies-policy';
 import TermsConditions from './pages/terms-conditions/TermsConditions';
 import VideoTestimonials from './components/videoslider';
 import ScrollFadeWrapper from './components/scroll-fade-wrapper';
-import ScrollFadeWrapper from './components/scroll-fade-wrapper';
 import './App.css';
 
 function App() {
