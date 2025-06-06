@@ -20,7 +20,8 @@ PROJECT_NAME="Microcirurgia-Cosmetica"
 CORS(app, resources={r"/*": {
     "origins": [
             "http://localhost:3000", # Your React development server
-            "https://microcirurgia.onrender.com"
+            "https://microcirurgia.onrender.com",
+            "https://santiclinic.me"
         ],  
     "supports_credentials": True
 }})
