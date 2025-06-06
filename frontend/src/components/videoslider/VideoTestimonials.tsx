@@ -156,8 +156,8 @@ const VideoTestimonials: React.FC = () => {
         {/* Video Carousel */}
         <div 
           className="video-testimonials__carousel"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onMouseEnter={isMobile ? undefined : handleMouseEnter}
+          onMouseLeave={isMobile ? undefined : handleMouseLeave}
         >
           <div 
             className="video-testimonials__track"
