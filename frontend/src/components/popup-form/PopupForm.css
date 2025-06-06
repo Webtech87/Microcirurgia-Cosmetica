@@ -198,7 +198,7 @@
 }
 
 .popup-form__submit {
-  background: #2c2c2c;
+  background: #1fc52c;
   color: white;
   border: none;
   padding: 16px 28px; /* Reduced from 18px 32px */
@@ -218,7 +218,7 @@
 }
 
 .popup-form__submit:hover:not(:disabled) {
-  background: #1a1a1a;
+  background: #178d21;
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(44, 44, 44, 0.4);
 }
