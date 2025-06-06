@@ -34,7 +34,7 @@ const VideoTestimonials: React.FC = () => {
     },
     {
       id: 5,
-      videoUrl: "https://youtube.com/shorts/-UfHWrocS4A?si=f0WzKkusnUQBJPP6",
+      videoUrl: "https://youtube.com/shorts/IewIM3txOnQ?si=pip9P61b3JjHsqMC",
       clientName: "Neide",
       treatment: "Micro lifting de suturas ancoradas",
       location: "Albufeira"
