@@ -14,6 +14,7 @@ const VideoTestimonials: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
+  const [activeVideo, setActiveVideo] = useState<number | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Sample testimonial data - replace with your actual video URLs
@@ -22,12 +23,17 @@ const VideoTestimonials: React.FC = () => {
       id: 1,
       videoUrl: "https://youtube.com/shorts/jOgsU2sbqIc?si=ADBorJH0p0zgvs0d",
       clientName: "Erica",
+      clientName: "Erica",
       treatment: "Micro lifting de sobrancelha",
+      location: "Faro"
       location: "Faro"
     },
     {
       id: 3,
       videoUrl: "https://youtube.com/shorts/InEXgVAIlZI?si=shok3t-naPvmXzxM",
+      clientName: "Neuza",
+      treatment: "Tratamento Facial Rejuvenescimento",
+      location: "Faro"
       clientName: "Neuza",
       treatment: "Tratamento Facial Rejuvenescimento",
       location: "Faro"
@@ -74,6 +80,7 @@ const VideoTestimonials: React.FC = () => {
   };
 
   // Convert YouTube Shorts to regular video URL
+  // Convert YouTube Shorts to regular video URL
   const getVideoEmbedUrl = (url: string): string => {
     const videoId = getYouTubeVideoId(url);
     if (!videoId) return '';
@@ -84,6 +91,7 @@ const VideoTestimonials: React.FC = () => {
 
   // Auto-advance carousel
   useEffect(() => {
+    if (!isPlaying && activeVideo === null) {
     if (!isPlaying && activeVideo === null) {
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prevIndex) => 
@@ -97,6 +105,7 @@ const VideoTestimonials: React.FC = () => {
         clearInterval(intervalRef.current);
       }
     };
+  }, [isPlaying, activeVideo, testimonials.length]);
   }, [isPlaying, activeVideo, testimonials.length]);
 
   // Handle desktop video interaction
@@ -113,6 +122,7 @@ const VideoTestimonials: React.FC = () => {
     setTimeout(() => {
       setIsPlaying(false);
       setActiveVideo(null);
+      setActiveVideo(null);
     }, 30000);
   };
 
@@ -120,6 +130,7 @@ const VideoTestimonials: React.FC = () => {
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
     setIsPlaying(false);
+    setActiveVideo(null);
     setActiveVideo(null);
   };
 
@@ -131,6 +142,7 @@ const VideoTestimonials: React.FC = () => {
   };
 
   const handleMouseLeave = () => {
+    if (!isPlaying && activeVideo === null) {
     if (!isPlaying && activeVideo === null) {
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prevIndex) => 
