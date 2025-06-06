@@ -355,6 +355,11 @@
     cursor: not-allowed;
     transform: none;
   }
+
+  .form-button-wrapper {
+    display: flex;
+    justify-content: center;
+  }
   
   .contact__form-spinner {
     width: 16px;
