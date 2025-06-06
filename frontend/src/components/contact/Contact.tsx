@@ -216,20 +216,20 @@ const Contact: React.FC = () => {
                 <div className="contact__detail-item">
                   <span className="contact__detail-icon">✉️</span>
                   <div className="contact__detail-content">
-                    <a href="mailto:info@santiclinic.pt" className="contact__detail-link">info@santiclinic.pt</a>
+                    <a href="mailto:info@santiclinic.pt" className="contact__detail-link">geral@santiclinic.eu</a>
                   </div>
                 </div>
                 <div className="contact__detail-item">
                   <span className="contact__detail-icon">📍</span>
                   <div className="contact__detail-content">
                     <a 
-                      href="https://maps.google.com/?q=Rua+da+Beleza,+123,+1000-001+Lisboa" 
+                      href="https://www.google.com/maps/place/Santiclinic+-+Medicina+Est%C3%A9tica/@37.0262953,-7.9407023,17z/data=!3m1!4b1!4m6!3m5!1s0xd0553015337b105:0xaf8fc902367418d6!8m2!3d37.0262953!4d-7.9407023!16s%2Fg%2F11lx8xf0fb?entry=ttu&g_ep=EgoyMDI1MDYwMy4wIKXMDSoASAFQAw%3D%3D" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="contact__detail-link"
                     >
-                      <span>Rua da Beleza, 123</span>
-                      <span>1000-001 Lisboa</span>
+                      <span>Praceta Agostinho Ferreira Chaves 5 <br />Lj 4 AA</span>
+                      <span>8005-328 Faro</span>
                     </a>
                   </div>
                 </div>
