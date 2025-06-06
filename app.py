@@ -19,7 +19,7 @@ PROJECT_NAME="Microcirurgia-Cosmetica"
 # Configure CORS to allow requests from your React app
 CORS(app, resources={r"/*": {
     "origins": [
-            "http://localhost:5173", # Your React development server
+            "http://localhost:3000", # Your React development server
             "https://microcirurgia.onrender.com"
         ],  
     "supports_credentials": True
@@ -320,7 +320,7 @@ def home():
                     # Continue even if sheets fails
                 
                 # For React frontend, return JSON response
-                return jsonify({'success': True, 'message': 'Formulário enviado com sucesso! Entraremos em contato em breve.'})
+                return jsonify({'success': True, 'message': 'Formulário enviado com sucesso! Entraremos em contato em breve.'}), 200
             else:
                 # Handle form validation errors
                 errors = {field: errors for field, errors in form.errors.items()}
