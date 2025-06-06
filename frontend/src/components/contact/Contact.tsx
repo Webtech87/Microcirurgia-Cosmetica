@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
       submitData.append('subject', formData.subject);
       submitData.append('msg', formData.msg);
 
-      const response = await fetch('http://localhost:5000/', {
+      const response = await fetch('https://microcirurgia-backend.onrender.com', {
         method: 'POST',
         body: submitData,
         credentials: 'include', // Include cookies for CORS
