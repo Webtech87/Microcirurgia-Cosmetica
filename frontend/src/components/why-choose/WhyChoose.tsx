@@ -6,22 +6,22 @@ const WhyChoose: React.FC = () => {
     {
       icon: '🔧',
       title: 'Técnicas exclusivas e refinadas',
-      description: 'Use only of dental care is responsible and compromised above a premium budget.'
+      description: 'Procedimentos minimamente invasivos com máxima precisão.'
     },
     {
       icon: '👥',
       title: 'Equipa especializada',
-      description: 'Use only of dental care is responsible and compromised above a premium budget.'
+      description: 'Profissionais experientes, dedicados ao seu bem-estar.'
     },
     {
       icon: '⚡',
       title: 'Recuperação rápida e discreta',
-      description: 'Use only of dental care is responsible and compromised above a premium budget.'
+      description: 'Volte à sua rotina com confiança e conforto'
     },
     {
       icon: '✨',
       title: 'Resultados visíveis e duradouros',
-      description: 'Use only of dental care is responsible and compromised above a premium budget.'
+      description: 'Transformações reais, com efeitos que se mantêm no tempo.'
     }
   ];
 
