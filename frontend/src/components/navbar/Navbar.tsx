@@ -168,11 +168,11 @@ const Navbar: React.FC = () => {
           
           <div className="navbar__language">
             <button className="navbar__lang-btn">
-              <span className="flag-icon flag-icon--pt"></span>
+              <img src='/images/flag-pt.png' className="flag-icon" />
               PT
             </button>
             <button className="navbar__lang-btn">
-              <span className="flag-icon flag-icon--en"></span>
+              <img src='/images/flag-gb.png' className="flag-icon" />
               EN
             </button>
           </div>
@@ -265,11 +265,11 @@ const Navbar: React.FC = () => {
             
             <div className="navbar__mobile-language">
               <button className="navbar__mobile-lang-btn">
-                <span className="flag-icon flag-icon--pt"></span>
+                <img src='/images/flag-pt.png' className="flag-icon" />
                 PT
               </button>
               <button className="navbar__mobile-lang-btn">
-                <span className="flag-icon flag-icon--en"></span>
+                <img src='/images/flag-gb.png' className="flag-icon" />
                 EN
               </button>
             </div>
