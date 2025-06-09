@@ -215,6 +215,25 @@
   gap: 8px;
   margin-top: 6px; /* Reduced from 8px */
   box-shadow: 0 4px 15px rgba(44, 44, 44, 0.3);
+  animation: blink 1.5s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  25% { opacity: .5; }
+  50% { 
+    opacity: 0;
+    transform: scale(1.05);
+ 
+  }
+  75% { opacity: .5; }
+  100% { 
+    opacity: 1; 
+    transform: scale(1);
+}
 }
 
 .popup-form__submit:hover:not(:disabled) {
