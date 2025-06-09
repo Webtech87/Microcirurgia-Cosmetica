@@ -81,7 +81,25 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(244, 208, 63, 0.3);
-  width: fit-content;
+  width: fit-content;animation: blink 1.5s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  25% { opacity: .5; }
+  50% { 
+    opacity: 0;
+    transform: scale(1.05);
+ 
+  }
+  75% { opacity: .5; }
+  100% { 
+    opacity: 1; 
+    transform: scale(1);
+}
 }
 
 .hero__cta-btn:hover {

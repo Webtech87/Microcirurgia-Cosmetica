@@ -341,8 +341,26 @@
     margin-top: 8px;
     box-shadow: 0 2px 10px rgba(76, 175, 80, 0.3);
     width: fit-content; /* Added to make button only as wide as content */
-    align-self: center; /* Changed from flex-start to center */
+    align-self: center; /* Changed from flex-start to center */animation: blink 1.5s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0% { 
+    opacity: 1;
+    transform: scale(1);
   }
+  25% { opacity: .5; }
+  50% { 
+    opacity: 0;
+    transform: scale(1.05);
+ 
+  }
+  75% { opacity: .5; }
+  100% { 
+    opacity: 1; 
+    transform: scale(1);
+}
+}
   
   .contact__form-submit:hover:not(:disabled) {
     background: #45a049; /* Darker green on hover */
