@@ -306,7 +306,7 @@ const PopupForm: React.FC = () => {
               </div>
 
               <p className="popup-form__privacy">
-                🔒 Os seus dados estão seguros connosco. 
+                🔒 Os seus dados estão seguros connosco.{` `}
                 <a 
                   href="/politica-privacidade" 
                   className="popup-form__privacy-link"

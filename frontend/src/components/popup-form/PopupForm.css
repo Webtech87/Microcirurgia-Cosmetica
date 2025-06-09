@@ -428,6 +428,7 @@
     margin-top: 16px; /* Increased margin */
     padding: 0 8px; /* More padding */
     line-height: 1.5; /* Better line height */
+    max-width: 60vw;
   }
   
   .popup-form__success-title {
