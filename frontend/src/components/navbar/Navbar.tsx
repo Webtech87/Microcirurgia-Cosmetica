@@ -235,7 +235,7 @@ const Navbar: React.FC = () => {
                 className="navbar__mobile-link" 
                 onClick={handleTecnicasClick}
               >
-                TECNICAS
+                {t('nav.techniques')}
               </a>
             </li>
             <li className="navbar__mobile-item">
@@ -244,7 +244,7 @@ const Navbar: React.FC = () => {
                 className="navbar__mobile-link" 
                 onClick={handleTratamentosClick}
               >
-                TRATAMENTOS
+                {t('nav.treatments')}
               </a>
             </li>
             <li className="navbar__mobile-item">
@@ -253,7 +253,7 @@ const Navbar: React.FC = () => {
                 className="navbar__mobile-link" 
                 onClick={handleContactoClick}
               >
-                CONTACTO
+                {t('nav.contact')}
               </a>
             </li>
           </ul>
@@ -267,7 +267,7 @@ const Navbar: React.FC = () => {
               }}
             >
               <WhatsAppIcon />
-              MARCAR CONSULTA
+              {t('nav.wa_button')}
             </button>
             
             <div className="navbar__mobile-language">
