@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
+import i18n from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const handleLanguageChange = (lang: string) => {
+    i18n.changeLanguage(lang);
+  };
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -135,7 +142,7 @@ const Navbar: React.FC = () => {
                 className="navbar__link"
                 onClick={handleTecnicasClick}
               >
-                TECNICAS
+                {t('nav.techniques')}
               </a>
             </li>
             <li className="navbar__item">
@@ -144,7 +151,7 @@ const Navbar: React.FC = () => {
                 className="navbar__link"
                 onClick={handleTratamentosClick}
               >
-                TRATAMENTOS
+                {t('nav.treatments')}
               </a>
             </li>
             <li className="navbar__item">
@@ -153,7 +160,7 @@ const Navbar: React.FC = () => {
                 className="navbar__link"
                 onClick={handleContactoClick}
               >
-                CONTACTO
+                {t('nav.contact')}
               </a>
             </li>
           </ul>
@@ -163,15 +170,15 @@ const Navbar: React.FC = () => {
         <div className="navbar__actions">
           <button className="navbar__cta-btn" onClick={handleWhatsAppClick}>
             <WhatsAppIcon />
-            MARCAR CONSULTA
+            {t('nav.wa_button')}
           </button>
           
           <div className="navbar__language">
-            <button className="navbar__lang-btn">
+            <button className="navbar__lang-btn" onClick={() => handleLanguageChange('pt')}>
               <img src='/images/flag-pt.png' className="flag-icon" />
               PT
             </button>
-            <button className="navbar__lang-btn">
+            <button className="navbar__lang-btn" onClick={() => handleLanguageChange('en')}>
               <img src='/images/flag-gb.png' className="flag-icon" />
               EN
             </button>
