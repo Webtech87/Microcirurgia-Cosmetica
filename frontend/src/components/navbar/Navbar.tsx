@@ -271,11 +271,11 @@ const Navbar: React.FC = () => {
             </button>
             
             <div className="navbar__mobile-language">
-              <button className="navbar__mobile-lang-btn">
+              <button onClick={() => handleLanguageChange('pt')} className="navbar__mobile-lang-btn">
                 <img src='/images/flag-pt.png' className="flag-icon" />
                 PT
               </button>
-              <button className="navbar__mobile-lang-btn">
+              <button onClick={() => handleLanguageChange('en')} className="navbar__mobile-lang-btn">
                 <img src='/images/flag-gb.png' className="flag-icon" />
                 EN
               </button>
