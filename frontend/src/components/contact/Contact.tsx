@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import {useTranslation} from "react-i18next";
 
 interface FormData {
   name: string;
@@ -26,21 +27,22 @@ const Contact: React.FC = () => {
     msg: ''
   });
 
+  const {t} = useTranslation();
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const assuntoOptions = [
-    { value: '', label: 'Selecione um assunto' },
-    { value: 'm_lifting_sobrancelha', label: 'Micro lifting de sobrancelha' },
-    { value: 'm_blef_superior', label: 'Micro blefaroplastia superior' },
-    { value: 'm_blef_inferior', label: 'Micro blefaroplastia inferior' },
-    { value: 'm_lift_deep_plane', label: 'Micro lifting deep plane' },
-    { value: 'm_m_lift', label: 'Mini micro lifting' },
-    { value: 'm_implante_sobrancelha', label: 'Micro implante de sobrancelha técnica exclusiva' },
-    { value: 'm_otoplastia', label: 'Micro Otoplastia' },
-    { value: 'm_lobuloplastia', label: 'Micro Lobuloplastia' },
-    { value: 'c_m_cosmética', label: 'Consulta microcirurgia cosmética' }
+    { value: '', label: t("footer.form.flds.obj.lt.9") },
+    { value: 'm_lifting_sobrancelha', label: t("footer.form.flds.obj.lt.0") },
+    { value: 'm_blef_superior', label: t("footer.form.flds.obj.lt.1") },
+    { value: 'm_blef_inferior', label: t("footer.form.flds.obj.lt.2") },
+    { value: 'm_lift_deep_plane', label: t("footer.form.flds.obj.lt.3") },
+    { value: 'm_m_lift', label: t("footer.form.flds.obj.lt.4") },
+    { value: 'm_implante_sobrancelha', label: t("footer.form.flds.obj.lt.5") },
+    { value: 'm_otoplastia', label: t("footer.form.flds.obj.lt.6") },
+    { value: 'm_lobuloplastia', label: t("footer.form.flds.obj.lt.7") },
+    { value: 'c_m_cosmética', label: t("footer.form.flds.obj.lt.8") }
   ];
 
   const validateForm = (): boolean => {
@@ -198,14 +200,13 @@ const Contact: React.FC = () => {
 
           <div className="contact__description">
             <p>
-              Tratamentos de beleza personalizados para 
-              realçar a sua impressão cuidada pessoal.
+              {t("footer.slogan")}
             </p>
           </div>
 
           <div className="contact__details">
             <div className="contact__detail-group">
-              <h3 className="contact__detail-title">Contacto</h3>
+              <h3 className="contact__detail-title">{t("footer.words.contact")}</h3>
               <div className="contact__detail-items">
                 <div className="contact__detail-item">
                   <span className="contact__detail-icon">📞</span>
@@ -237,11 +238,11 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="contact__detail-group">
-              <h3 className="contact__detail-title">Políticas</h3>
+              <h3 className="contact__detail-title">{t("footer.words.policy.title")}</h3>
               <div className="contact__detail-items">
-                <a href="/politica-privacidade" className="contact__detail-link">Política de Privacidade</a>
-                <a href="/politica-cookies" className="contact__detail-link">Política de Cookies</a>
-                <a href="/termos-condicoes" className="contact__detail-link">Termos e Condições</a>
+                <a href="/politica-privacidade" className="contact__detail-link">{t("footer.words.policy.lt.0")}</a>
+                <a href="/politica-cookies" className="contact__detail-link">{t("footer.words.policy.lt.1")}</a>
+                <a href="/termos-condicoes" className="contact__detail-link">{t("footer.words.policy.lt.2")}</a>
               </div>
             </div>
           </div>
@@ -254,7 +255,7 @@ const Contact: React.FC = () => {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
-              Seguir no Instagram
+              {t("footer.istg")}
             </button>
           </div>
         </div>
@@ -264,11 +265,10 @@ const Contact: React.FC = () => {
           <div className="contact__form-container">
             <div className="contact__form-header">
               <h2 className="contact__form-title">
-                Agende a sua avaliação agora
+                {t("footer.form.title")}
               </h2>
               <p className="contact__form-subtitle">
-                Por favor, preencha o formulário abaixo para 
-                entrar em contacto com a nossa equipa.
+                {t("footer.form.subtitle")}
               </p>
             </div>
 
@@ -276,7 +276,7 @@ const Contact: React.FC = () => {
               <div className="contact__form-row">
                 <div className="contact__form-group">
                   <label htmlFor="name" className="contact__form-label">
-                    Seu nome *
+                    {t("footer.form.flds.name.title")} *
                   </label>
                   <input
                     type="text"
@@ -285,7 +285,7 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     className={`contact__form-input ${errors.name ? 'contact__form-input--error' : ''}`}
-                    placeholder="Digite o seu nome completo"
+                    placeholder={t("footer.form.flds.name.ph")}
                     required
                   />
                   {errors.name && (
@@ -316,7 +316,7 @@ const Contact: React.FC = () => {
 
                 <div className="contact__form-group">
                   <label htmlFor="phone" className="contact__form-label">
-                    Telefone *
+                    {t("footer.form.flds.phone.title")} *
                   </label>
                   <input
                     type="tel"
@@ -337,7 +337,7 @@ const Contact: React.FC = () => {
               <div className="contact__form-row">
                 <div className="contact__form-group">
                   <label htmlFor="subject" className="contact__form-label">
-                    Assunto *
+                    {t("footer.form.flds.obj.title")} *
                   </label>
                   <select
                     id="subject"
@@ -362,7 +362,7 @@ const Contact: React.FC = () => {
               <div className="contact__form-row">
                 <div className="contact__form-group">
                   <label htmlFor="msg" className="contact__form-label">
-                    Mensagem *
+                    {t("footer.form.flds.msg.title")} *
                   </label>
                   <textarea
                     id="msg"
@@ -370,7 +370,7 @@ const Contact: React.FC = () => {
                     value={formData.msg}
                     onChange={handleInputChange}
                     className={`contact__form-textarea ${errors.msg ? 'contact__form-input--error' : ''}`}
-                    placeholder="Descreva o que procura ou as suas dúvidas..."
+                    placeholder={t("footer.form.flds.msg.ph")}
                     rows={5}
                     required
                   />
@@ -382,9 +382,9 @@ const Contact: React.FC = () => {
 
               <div className="contact__form-privacy">
                 <p>
-                  Ao enviar este formulário, aceita a nossa{' '}
+                  {t("footer.form.add_info")}{' '}
                   <a href="/politica-privacidade" className="contact__form-privacy-link">
-                    Política de Privacidade
+                    {t("cookers_baner.bottom.1")}
                   </a>
                 </p>
               </div>
@@ -397,10 +397,10 @@ const Contact: React.FC = () => {
                   {isSubmitting ? (
                     <>
                       <span className="contact__form-spinner"></span>
-                      ENVIANDO...
+                      t("footer.form.btn.1")
                     </>
                   ) : (
-                    'ENVIAR MENSAGEM'
+                    t("footer.form.btn.0")
                   )}
                 </button>
               </div>

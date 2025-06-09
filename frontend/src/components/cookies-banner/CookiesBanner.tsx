@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './CookiesBanner.css';
+import {useTranslation} from "react-i18next";
 
 interface CookiePreferences {
   necessary: boolean;
@@ -17,6 +18,7 @@ const CookiesBanner: React.FC = () => {
     marketing: true,
     functional: true
   });
+  const {t} = useTranslation();
 
   useEffect(() => {
     // Check if user has already made a choice
@@ -124,14 +126,13 @@ const CookiesBanner: React.FC = () => {
           <div className="cookies-banner__header">
             <div className="cookies-banner__icon">🍪</div>
             <h3 className="cookies-banner__title">
-              Utilizamos cookies para melhorar a sua experiência
+              {t("cookers_baner.title")}
             </h3>
           </div>
 
           <div className="cookies-banner__text">
             <p>
-              Na Santiclinic, utilizamos cookies para personalizar conteúdo, analisar o tráfego do site 
-              e melhorar a sua experiência de navegação. Pode escolher quais cookies aceitar.
+            {t("cookers_baner.p")}
             </p>
           </div>
 
@@ -220,7 +221,7 @@ const CookiesBanner: React.FC = () => {
                 className="cookies-banner__btn cookies-banner__btn--accept"
                 onClick={handleAcceptAll}
               >
-                Aceitar Todos
+                {t("cookers_baner.lt.0")}
               </button>
               
               {showDetails && (
@@ -228,7 +229,7 @@ const CookiesBanner: React.FC = () => {
                   className="cookies-banner__btn cookies-banner__btn--accept-selected"
                   onClick={handleAcceptSelected}
                 >
-                  Aceitar Selecionados
+                   {t("cookers_baner.lt.1")}
                 </button>
               )}
             </div>
@@ -245,20 +246,20 @@ const CookiesBanner: React.FC = () => {
                 className="cookies-banner__btn cookies-banner__btn--reject"
                 onClick={handleRejectNonEssential}
               >
-                Rejeitar Não Essenciais
+                {t("cookers_baner.lt.2")}
               </button>
             </div>
           </div>
 
           <div className="cookies-banner__footer">
             <p>
-              Para mais informações, consulte a nossa{' '}
+               {t("cookers_baner.bottom.0")}{' '}
               <a href="/politica-privacidade" className="cookies-banner__link">
-                Política de Privacidade
+                {t("cookers_baner.bottom.1")}
               </a>
-              {' '}e{' '}
+              {' '}{t("cookers_baner.bottom.2")}{' '}
               <a href="/politica-cookies" className="cookies-banner__link">
-                Política de Cookies
+                {t("cookers_baner.bottom.3")}
               </a>
             </p>
           </div>

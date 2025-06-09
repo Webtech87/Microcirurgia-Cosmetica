@@ -1,8 +1,196 @@
 {
-    "nav": {
-        "techniques": "TECHNIQUES",
-        "treatments": "TREATMENTS",
-        "contact": "CONTACT",
-        "wa_button": "SCHEDULE APPOINTMENT"
+  "nav": {
+    "techniques": "TECHNIQUES",
+    "treatments": "TREATMENTS",
+    "contact": "CONTACT",
+    "wa_button": "BOOK A CONSULTATION"
+  },
+  "s1": {
+    "title": "Cosmetic\nMicrosurgery",
+    "subtitle": "Natural Result",
+    "p": "Minimally invasive techniques, exclusive to Santiclinic, developed with safety, precision, and discretion",
+    "btn": "I WANT TO KNOW MORE"
+  },
+  "s2": {
+    "title": "Why choose\nSanticlinic",
+    "p": "Modern techniques, natural results, and fully personalized care",
+    "lt": [
+      {
+        "title": "Exclusive and refined techniques",
+        "p": "Minimally invasive procedures with maximum precision"
+      },
+      {
+        "title": "Specialized team",
+        "p": "Experienced professionals dedicated to your well-being"
+      },
+      {
+        "title": "Quick and discreet recovery",
+        "p": "Return to your routine with confidence and comfort"
+      },
+      {
+        "title": "Visible and long-lasting results",
+        "p": "Real transformations with lasting effects"
+      }
+    ]
+  },
+  "s3": {
+    "title": "Choose the ideal\ntreatment for you",
+    "p": "Discover personalized microsurgery solutions that match your aesthetic needs and lifestyle",
+    "lt": {
+      "1": {
+        "title": "Eyebrow Micro Transplant",
+        "p": "Eyebrow transplant microsurgery is an aesthetic procedure aimed at restoring, filling, or defining the eyebrows using hair follicles taken from another part of the body, usually the back of the head. The final result is generally natural, with fuller strands well aligned to the desired shape",
+        "lt": [
+          {
+            "title": "Full Transplant",
+            "p": "For those who have lost all eyebrow hair follicles, this surgery aims to implant the complete eyebrow"
+          },
+          {
+            "title": "Filling Transplant",
+            "p": "For those who have partially lost eyebrow hair follicles, this surgery will fill in the existing gaps"
+          }
+        ]
+      },
+      "2": {
+        "title": "Micro Lifting",
+        "p": "Cosmetic surgical procedures aimed at rejuvenating different areas of the face, reducing wrinkles and sagging with minimally invasive techniques",
+        "lt": [
+          {
+            "title": "Facial Micro Lifting",
+            "p": "A cosmetic surgical procedure designed to rejuvenate the face by reducing wrinkles and sagging, especially in the cheeks, jawline, and neck"
+          },
+          {
+            "title": "Eyebrow Micro Lifting",
+            "p": "A less invasive aesthetic procedure focused on the eyebrow and forehead area, providing a subtle and natural lifting effect. It slightly corrects sagging in the eyebrow area and softens forehead lines"
+          },
+          {
+            "title": "Upper Lip Micro Lifting",
+            "p": "Aims to shorten the distance between the lip and nose, making the upper lip more prominent and rejuvenating the area. The upper lip gains a fuller and more defined appearance without the need for fillers"
+          }
+        ]
+      },
+      "3": {
+        "title": "Micro Cervicoplasty",
+        "p": "A cosmetic procedure aimed at eliminating excess fat accumulated under the chin, creating a more defined chin and neck contour. This procedure is recommended for people who have a double chin due to fat accumulation, and not due to excessive skin sagging or significant muscle changes. Recovery is relatively quick, and most patients can resume daily activities in a few days"
+      },
+      "4": {
+        "title": "Micro Blepharoplasty",
+        "p": "Minimally invasive cosmetic procedures focused on the eye area, aimed at correcting signs of aging such as excess skin and fat on the eyelids",
+        "lt": [
+          {
+            "title": "Upper Micro Blepharoplasty",
+            "p": "This procedure aims to correct signs of aging around the eyes, such as excess skin on the upper eyelids and fat deposits"
+          },
+          {
+            "title": "Lower Micro Blepharoplasty",
+            "p": "A procedure to improve the appearance of fat bags under the eyes and excess skin"
+          },
+          {
+            "title": "Upper and Lower Micro Blepharoplasty",
+            "p": "Minimally invasive cosmetic procedure focused on removing excess skin, fat, or both from the upper and lower eyelids to rejuvenate the eye area"
+          }
+        ]
+      },
+      "5": {
+        "title": "Micro Otoplasty",
+        "p": "Aims to correct prominent ears by bringing them closer to the head, and improve the shape or contour of the ears, making them more harmonious with the face. The results are permanent, as the ears maintain their new position and shape due to cartilage folding and suturing"
+      }
     }
+  },
+  "s4": {
+    "title": "Real Experiences",
+    "p": "Discover how our cosmetic microsurgery has transformed the lives of our clients",
+    "lt": [
+      "Eyebrow micro lifting",
+      "Facial rejuvenation treatment",
+      "Anchored suture micro lifting"
+    ]
+  },
+  "s5": {
+    "title": "What our clients say",
+    "p": "Real experiences with cosmetic microsurgery by Dr. Wilsa"
+  },
+  "footer": {
+    "slogan": "Personalized beauty treatments to enhance your well-groomed appearance",
+    "words": {
+      "contact": "Contact",
+      "policy": {
+        "title": "Policies",
+        "lt": [
+          "Privacy Policy",
+          "Cookie Policy",
+          "Terms and Conditions"
+        ]
+      }
+    },
+    "istg": "Follow on Instagram",
+    "form": {
+      "title": "Schedule your evaluation now",
+      "subtitle": "Please fill out the form below to get in touch with our team",
+      "flds": {
+        "name": {
+          "title": "Your Name",
+          "ph": "Enter your full name"
+        },
+        "phone": {
+          "title": "Phone"
+        },
+        "obj": {
+          "title": "Subject",
+          "lt": [
+            "Eyebrow micro lifting",
+            "Upper micro blepharoplasty",
+            "Lower micro blepharoplasty",
+            "Deep plane micro lifting",
+            "Mini micro lifting",
+            "Exclusive technique eyebrow micro implant",
+            "Micro Otoplasty",
+            "Micro Lobuloplasty",
+            "Cosmetic microsurgery consultation",
+            "Select a subject"
+          ]
+        },
+        "msg": {
+          "title": "Message",
+          "ph": "Describe what you're looking for or your questions..."
+        }
+      },
+      "add_info": "By submitting this form, you accept our",
+      "btn": ["SEND MESSAGE", "SENDING..."]
+    }
+  },
+  "bf": "2025 SANTICLINIC. All rights reserved.",
+  "pupop": {
+    "title": "Book Your Consultation",
+    "p": [
+      "Book your personalized evaluation with our specialists now",
+      "Discover the best treatment for you."
+    ],
+    "fm": [
+      "Select a subject",
+      "Your full name",
+      "Your best email",
+      "Your phone number (numbers only)",
+      "BOOK CONSULTATION",
+      "Personalized evaluation",
+      "Qualified specialists",
+      "Guaranteed results",
+      "Your data is safe with us"
+    ]
+  },
+  "cookers_baner": {
+    "title": "We use cookies to improve your experience",
+    "p": "At Santiclinic, we use cookies to personalize content, analyze website traffic,\n              and enhance your browsing experience. You can choose which cookies to accept.",
+    "lt": [
+      "Accept All",
+      "Customize",
+      "Reject Non-Essential"
+    ],
+    "bottom": [
+      "For more information, see our",
+      "Privacy Policy",
+      "and",
+      "Cookie Policy"
+    ]
+  }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import {useTranslation} from "react-i18next";
 
 const Hero: React.FC = () => {
   const handleCTAClick = () => {
@@ -14,7 +15,7 @@ const Hero: React.FC = () => {
     }
     console.log('CTA clicked - QUERO SABER MAIS - Scrolling to Contact');
   };
-
+  const {t} = useTranslation();
   return (
     <section className="hero">
       <div className="hero__container">
@@ -22,26 +23,22 @@ const Hero: React.FC = () => {
         <div className="hero__content">
           <div className="hero__text">
             <h1 className="hero__title">
-              Microcirurgia
-              <br />
-              Coméstica.
+              {t("s1.title")}
             </h1>
             
             <h2 className="hero__subtitle">
-              Resultado Natural
+              {t("s1.subtitle")}
             </h2>
             
             <p className="hero__description">
-              Técnicas minimamente invasivas, 
-              exclusivas da Santiclinic, desenvolvidas 
-              com segurança, precisão e discrição.
+              {t("s1.p")}
             </p>
             
             <button 
               className="hero__cta-btn"
               onClick={handleCTAClick}
             >
-              QUERO SABER MAIS
+              {t("s1.btn")}
             </button>
           </div>
         </div>

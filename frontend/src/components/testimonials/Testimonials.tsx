@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Testimonials.css';
+import {useTranslation} from "react-i18next";
 
 interface Testimonial {
   id: number;
@@ -86,7 +87,7 @@ const Testimonials: React.FC = () => {
       date: 'há 1 semana'
     }
   ];
-
+  const {t} = useTranslation();
   const itemsPerView = 3;
   const totalSlides = Math.max(0, testimonials.length - itemsPerView + 1);
 
@@ -138,10 +139,10 @@ const Testimonials: React.FC = () => {
       <div className="testimonials__container">
         <div className="testimonials__header">
           <h2 className="testimonials__title">
-            O que dizem os nossos clientes
+            {t("s5.title")}
           </h2>
           <p className="testimonials__subtitle">
-            Experiências reais de microcirurgia cosmética com a Dra. Wilsa
+            {t("s5.p")}
           </p>
         </div>
 
