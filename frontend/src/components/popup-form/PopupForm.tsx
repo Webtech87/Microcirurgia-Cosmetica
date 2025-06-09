@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './PopupForm.css';
+import {useTranslation} from "react-i18next";
 
 interface FormData {
   name: string;
@@ -18,6 +19,7 @@ interface FormErrors {
 }
 
 const PopupForm: React.FC = () => {
+  const {t} = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -221,11 +223,11 @@ const PopupForm: React.FC = () => {
             <div className="popup-form__header">
               <div className="popup-form__icon">💎</div>
               <h2 className="popup-form__title">
-                Agende a Sua Consulta!
+                {t("pupop.title")}!
               </h2>
               <p className="popup-form__subtitle">
-                Reserve já a sua avaliação personalizada com os nossos especialistas. 
-                <strong> Descubra o melhor tratamento para si.</strong>
+                {t("pupop.p.0")}
+                <strong>{t("pupop.p.1")}</strong>
               </p>
             </div>
 
@@ -237,7 +239,7 @@ const PopupForm: React.FC = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   className={`popup-form__input ${errors.name ? 'popup-form__input--error' : ''}`}
-                  placeholder="O seu nome completo *"
+                  placeholder={t("pupop.fm.1")}
                   required
                 />
                 {errors.name && (
@@ -252,7 +254,7 @@ const PopupForm: React.FC = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   className={`popup-form__input ${errors.email ? 'popup-form__input--error' : ''}`}
-                  placeholder="O seu melhor email *"
+                  placeholder={t("pupop.fm.2")}
                   required
                 />
                 {errors.email && (
@@ -267,7 +269,7 @@ const PopupForm: React.FC = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                   className={`popup-form__input ${errors.phone ? 'popup-form__input--error' : ''}`}
-                  placeholder="O seu número de telefone (apenas números) *"
+                  placeholder={t("pupop.fm.3")}
                   required
                 />
                 {errors.phone && (
@@ -286,33 +288,33 @@ const PopupForm: React.FC = () => {
                     AGENDANDO...
                   </>
                 ) : (
-                  'AGENDAR CONSULTA'
+                  t("pupop.fm.4")
                 )}
               </button>
 
               <div className="popup-form__benefits">
                 <div className="popup-form__benefit">
                   <span className="popup-form__benefit-icon">✓</span>
-                  <span>Avaliação personalizada</span>
+                  <span>{t("pupop.fm.5")}</span>
                 </div>
                 <div className="popup-form__benefit">
                   <span className="popup-form__benefit-icon">✓</span>
-                  <span>Especialistas qualificados</span>
+                  <span>{t("pupop.fm.6")}</span>
                 </div>
                 <div className="popup-form__benefit">
                   <span className="popup-form__benefit-icon">✓</span>
-                  <span>Resultados garantidos</span>
+                  <span>{t("pupop.fm.7")}</span>
                 </div>
               </div>
 
               <p className="popup-form__privacy">
-                🔒 Os seus dados estão seguros connosco.{` `}
+                🔒 {t("pupop.fm.8")}.{` `}
                 <a 
                   href="/politica-privacidade" 
                   className="popup-form__privacy-link"
                   onClick={handlePrivacyLinkClick}
                 >
-                  Política de Privacidade
+                  {t("cookers_baner.bottom.1")}
                 </a>
               </p>
             </form>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './VideoTestimonials.css';
+import {useTranslation} from "react-i18next";
 
 interface VideoTestimonial {
   id: number;
@@ -15,27 +16,27 @@ const VideoTestimonials: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
+  const {t} = useTranslation();
   const testimonials: VideoTestimonial[] = [
     {
       id: 1,
       videoUrl: "https://youtube.com/shorts/jOgsU2sbqIc?si=ADBorJH0p0zgvs0d",
       clientName: "Erica",
-      treatment: "Micro lifting de sobrancelha",
+      treatment: t("s4.lt.0"),
       location: "Faro"
     },
     {
       id: 3,
       videoUrl: "https://youtube.com/shorts/InEXgVAIlZI?si=shok3t-naPvmXzxM",
       clientName: "Neuza",
-      treatment: "Tratamento Facial Rejuvenescimento",
+      treatment: t("s4.lt.1"),
       location: "Faro"
     },
     {
       id: 5,
       videoUrl: "https://youtube.com/shorts/IewIM3txOnQ?si=pip9P61b3JjHsqMC",
       clientName: "Neide",
-      treatment: "Micro lifting de suturas ancoradas",
+      treatment: t("s4.lt.2"),
       location: "Albufeira"
     },
   ];
@@ -135,10 +136,10 @@ const VideoTestimonials: React.FC = () => {
       <div className="video-testimonials__container">
         <div className="video-testimonials__header">
           <h2 className="video-testimonials__title">
-            Experiências Reais
+            {t("s4.title")}
           </h2>
           <p className="video-testimonials__subtitle">
-            Descubra como a nossa microcirurgia cosmética transformou a vida dos nossos clientes
+            {t("s4.p")}.
           </p>
         </div>
 

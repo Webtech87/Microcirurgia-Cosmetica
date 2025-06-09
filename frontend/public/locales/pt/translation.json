@@ -1,8 +1,196 @@
 {
-    "nav": {
-        "techniques": "TÉCNICAS",
-        "treatments": "TRATAMENTOS",
-        "contact": "CONTACTO",
-        "wa_button": "MARCAR CONSULTA"
+  "nav": {
+    "techniques": "TÉCNICAS",
+    "treatments": "TRATAMENTOS",
+    "contact": "CONTACTO",
+    "wa_button": "MARCAR CONSULTA"
+  },
+  "s1": {
+    "title": "Microcirurgia\nComéstica",
+    "subtitle": "Resultado Natural",
+    "p": "Técnicas minimamente invasivas, exclusivas da Santiclinic, desenvolvidas com segurança, precisão e discrição",
+    "btn": "QUERO SABER MAIS"
+  },
+  "s2": {
+    "title": "Porquê escolher a\nSanticlinic",
+    "p": "Técnicas modernas, resultados naturais e um acompanhamento totalmente personalizado",
+    "lt": [
+      {
+        "title": "Técnicas exclusivas e refinadas",
+        "p": "Procedimentos minimamente invasivos com máxima precisão"
+      },
+      {
+        "title": "Equipa especializada",
+        "p": "Profissionais experientes, dedicados ao seu bem-estar"
+      },
+      {
+        "title": "Recuperação rápida e discreta",
+        "p": "Volte à sua rotina com confiança e conforto"
+      },
+      {
+        "title": "Resultados visíveis e duradouros",
+        "p": "Transformações reais, com efeitos que se mantêm no tempo"
+      }
+    ]
+  },
+  "s3": {
+    "title": "Escolha o\ntratamento ideal\npara si",
+    "p": "Descubra soluções personalizadas de microcirurgia que se adaptam às suas necessidades estéticas e ao seu ritmo de vida",
+    "lt": {
+      "1": {
+        "title": "Micro Transplante Sobrancelha",
+        "p": "A microcirurgia de transplante de sobrancelha é um procedimento estético que visa restaurar, preencher ou definir as sobrancelhas, utilizando folículos capilares retirados de outra parte do corpo, geralmente da parte de trás da cabeça. O resultado final é geralmente natural, com fios mais preenchidos e bem alinhados ao formato desejado",
+        "lt": [
+          {
+            "title": "Transplante Completo",
+            "p": "Para quem sofreu uma perda total dos folículos capilares, esta cirurgia visa implantar a sobrancelha completa"
+          },
+          {
+            "title": "Transplante Filling",
+            "p": "Para quem perdeu parcialmente os folículos capilares, esta cirurgia irá preencher as falhas existentes"
+          }
+        ]
+      },
+      "2": {
+        "title": "Micro Lifting",
+        "p": "Procedimentos cirúrgicos estéticos destinados a rejuvenescer diferentes áreas do rosto, reduzindo rugas e flacidez com técnicas minimamente invasivas",
+        "lt": [
+          {
+            "title": "Micro Lifting Facial",
+            "p": "Procedimento cirúrgico estético destinado a rejuvenescer a aparência do rosto, reduzindo rugas e flacidez, especialmente na área das bochechas, maxilares e pescoço"
+          },
+          {
+            "title": "Micro Lifting Sobrancelhas",
+            "p": "Procedimento estético menos invasivo que se foca na área das sobrancelhas e testa, proporcionando um efeito de elevação sutil e natural. Corrige ligeiramente a flacidez na região das sobrancelhas e suaviza as linhas da testa"
+          },
+          {
+            "title": "Micro Lifting Lábio Superior",
+            "p": "Visa encurtar a distância entre o lábio e o nariz, tornando o lábio superior mais proeminente e rejuvenescendo a área. O lábio superior ganha uma aparência mais cheia e definida, sem a necessidade de preenchimentos"
+          }
+        ]
+      },
+      "3": {
+        "title": "Micro Cervicoplastia",
+        "p": "Procedimento estético destinado a eliminar o excesso de gordura acumulada na área da papada, criando um contorno mais definido do queixo e pescoço. Este procedimento é recomendado para pessoas que têm uma papada devido a acúmulo de gordura, e não devido a flacidez excessiva da pele ou a alterações musculares significativas. A recuperação é relativamente rápida, e a maioria dos pacientes consegue retomar as suas atividades diárias em poucos dias"
+      },
+      "4": {
+        "title": "Micro Blefaroplastia",
+        "p": "Procedimentos estéticos minimamente invasivos focados na área dos olhos, visando corrigir sinais de envelhecimento como excesso de pele e gordura nas pálpebras",
+        "lt": [
+          {
+            "title": "Micro Blefaroplastia Superior",
+            "p": "Este procedimento visa corrigir sinais de envelhecimento ao redor dos olhos, como excesso de pele nas pálpebras superiores e excesso de gordura"
+          },
+          {
+            "title": "Micro Blefaroplastia Inferior",
+            "p": "Procedimento que visa melhorar o aspeto das bolsas de gordura nas pálpebras inferiores e excesso de pele"
+          },
+          {
+            "title": "Micro Blefaroplastia Superior e Inferior",
+            "p": "Procedimento estético minimamente invasivo focado na remoção de excesso de pele, gordura ou ambos das pálpebras superiores e inferiores, com o objetivo de rejuvenescer a área dos olhos"
+          }
+        ]
+      },
+      "5": {
+        "title": "Micro Otoplastia",
+        "p": "Visa corrigir as orelhas proeminentes, aproximando-as da cabeça, e melhorar a forma ou contorno das orelhas, com o objetivo de melhorar a aparência e o posicionamento das orelhas, tornando-as mais harmoniosas em relação ao rosto. Os resultados são permanentes, pois as orelhas mantêm-se na nova posição e formato devido às dobras e suturas realizadas na cartilagem"
+      }
     }
+  },
+  "s4": {
+    "title": "Experiências Reais",
+    "p": "Descubra como a nossa microcirurgia cosmética transformou a vida dos nossos clientes",
+    "lt": [
+      "Micro lifting de sobrancelha",
+      "Tratamento Facial Rejuvenescimento",
+      "Micro lifting de suturas ancoradas"
+    ]
+  },
+  "s5": {
+    "title": "O que dizem os nossos clientes",
+    "p": "Experiências reais de microcirurgia cosmética com a Dra. Wilsa"
+  },
+  "footer": {
+    "slogan": "Tratamentos de beleza personalizados para realçar a sua impressão cuidada pessoal",
+    "words": {
+      "contact": "Contacto",
+      "policy": {
+        "title": "Políticas",
+        "lt": [
+          "Política de Privacidade",
+          "Política de Cookies",
+          "Termos e Condições"
+        ]
+      }
+    },
+    "istg": "Seguir no Instagram",
+    "form": {
+      "title": "Agende a sua avaliação agora",
+      "subtitle": "Por favor, preencha o formulário abaixo para entrar em contacto com a nossa equipa",
+      "flds": {
+        "name": {
+          "title": "Seu nome",
+          "ph": "Digite o seu nome completo"
+        },
+        "phone": {
+          "title": "Telefone"
+        },
+        "obj": {
+          "title": "Assunto",
+          "lt": [
+            "Micro lifting de sobrancelha",
+            "Micro blefaroplastia superior",
+            "Micro blefaroplastia inferior",
+            "Micro lifting deep plane",
+            "Mini micro lifting",
+            "Micro implante de sobrancelha técnica exclusiva",
+            "Micro Otoplastia",
+            "Micro Lobuloplastia",
+            "Consulta microcirurgia cosmética",
+            "Selecione um assunto"
+          ]
+        },
+        "msg": {
+          "title": "Mensagem",
+          "ph": "Descreva o que procura ou as suas dúvidas..."
+        }
+      },
+      "add_info": "Ao enviar este formulário, aceita a nossa",
+      "btn": ["ENVIAR MENSAGEM","ENVIANDO..."]
+    }
+  },
+  "bf": "2025 SANTICLINIC. Todos os direitos reservados.",
+  "pupop": {
+    "title": "Agende a Sua Consulta",
+    "p": [
+      "Reserve já a sua avaliação personalizada com os nossos especialistas",
+      "Descubra o melhor tratamento para si."
+    ],
+    "fm": [
+      "Selecione um assunto *",
+      "O seu nome completo *",
+      "O seu melhor email *",
+      "O seu número de telefone (apenas números) *",
+      "AGENDAR CONSULTA",
+      "Avaliação personalizada",
+      "Especialistas qualificados",
+      "Resultados garantidos",
+      "Os seus dados estão seguros connosco"
+    ]
+  },
+  "cookers_baner": {
+    "title": "Utilizamos cookies para melhorar a sua experiência",
+    "p": "Na Santiclinic, utilizamos cookies para personalizar conteúdo, analisar o tráfego do site \n              e melhorar a sua experiência de navegação. Pode escolher quais cookies aceitar.",
+    "lt": [
+      "Aceitar Todos",
+      "Personalizar",
+      "Rejeitar Não Essenciais"
+    ],
+    "bottom": [
+      "Para mais informações, consulte a nossa",
+      "Política de Privacidade",
+      "e",
+      "Política de Cookies"
+    ]
+  }
 }
