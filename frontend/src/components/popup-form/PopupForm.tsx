@@ -128,7 +128,7 @@ const PopupForm: React.FC = () => {
 
 
         if (!captchaToken) {
-            alert(t('ftr.form.flds.capcha'));
+            alert(t('footer.form.capcha'));
             return;
         }
 

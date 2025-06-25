@@ -123,7 +123,7 @@ const Contact: React.FC = () => {
         e.preventDefault();
 
         if (!captchaToken) {
-            alert(t('footer.form.chapcha'));
+            alert(t('footer.form.capcha'));
             return;
         }
 
