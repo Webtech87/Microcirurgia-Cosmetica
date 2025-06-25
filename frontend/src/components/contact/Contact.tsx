@@ -402,6 +402,13 @@ const Contact: React.FC = () => {
                                     )}
                                 </div>
                             </div>
+                                <ReCAPTCHA
+                                    className="recaptcha"
+                                    sitekey="6Ld7PG0rAAAAAFK-WKn-o5rwBCme581poep9VGSU"
+                                    onChange={handleCaptchaChange}
+                                />
+
+
 
                             <div className="contact__form-privacy">
                                 <p>
@@ -411,15 +418,6 @@ const Contact: React.FC = () => {
                                     </a>
                                 </p>
                             </div>
-
-                            <div className="recaptcha">
-                                <ReCAPTCHA
-                                    sitekey="6Ld7PG0rAAAAAFK-WKn-o5rwBCme581poep9VGSU"
-                                    onChange={handleCaptchaChange}
-                                />
-
-                            </div>
-
 
                             <div className="form-button-wrapper">
                                 <button

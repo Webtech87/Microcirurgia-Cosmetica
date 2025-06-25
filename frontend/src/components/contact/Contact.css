@@ -6,10 +6,12 @@
     overflow: hidden;
   }
 
-.recaptcha{
-  align-self: center;
+.recaptcha {
+  width: 100%;
+  display: flex;
+  padding: 1rem 0;
 }
-  
+
   .contact__container {
     max-width: 1200px;
     margin: 0 auto;
