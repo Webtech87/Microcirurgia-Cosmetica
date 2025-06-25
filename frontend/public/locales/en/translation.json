@@ -125,6 +125,7 @@
     },
     "istg": "Follow on Instagram",
     "form": {
+      "capcha": "Please verify that you are not a robot.",
       "title": "Schedule your evaluation now",
       "subtitle": "Please fill out the form below to get in touch with our team",
       "flds": {
@@ -156,7 +157,10 @@
         }
       },
       "add_info": "By submitting this form, you accept our",
-      "btn": ["SEND MESSAGE", "SENDING..."]
+      "btn": [
+        "SEND MESSAGE",
+        "SENDING..."
+      ]
     }
   },
   "bf": "2025 SANTICLINIC. All rights reserved.",

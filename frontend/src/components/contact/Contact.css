@@ -5,6 +5,10 @@
     position: relative;
     overflow: hidden;
   }
+
+.recaptcha{
+  align-self: center;
+}
   
   .contact__container {
     max-width: 1200px;

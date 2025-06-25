@@ -125,6 +125,7 @@
     },
     "istg": "Seguir no Instagram",
     "form": {
+      "capcha": "Confirme que você não é um robô.",
       "title": "Agende a sua avaliação agora",
       "subtitle": "Por favor, preencha o formulário abaixo para entrar em contacto com a nossa equipa",
       "flds": {
