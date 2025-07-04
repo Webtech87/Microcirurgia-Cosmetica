@@ -6,7 +6,7 @@ const WhatsAppFloat: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   // WhatsApp number (updated to match navbar)
-  const whatsappNumber = '+351915007427';
+  const whatsappNumber = '351915007427';
   const message = 'Olá! Gostaria de agendar uma consulta na Santiclinic.';
 
   // Show button after page loads
